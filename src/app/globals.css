@@ -1,26 +1,271 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "PP Object Sans";
+  src: url("/fonts/PP Object Sans-normal-400-100.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Object Sans";
+  src: url("/fonts/PP Object Sans-normal-500-100.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Object Sans";
+  src: url("/fonts/PP Object Sans-normal-700-100.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: #1F1F47;
+  --color-secondary-blue-1: #576CDB;
+  --color-secondary-blue-2: #4A3DDC;
+  --color-secondary-red: #F2545B;
+  --color-secondary-green: #11D483;
+  --color-gray-800: #1F1F47;
+  --color-gray-750: #6B7280;
+  --color-gray-50: #F9F9FB;
+  --color-border: #D6DBF5;
+  --color-border-light: #EAEDF6;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-gray-800);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+/* Font utilities matching RC's system */
+.font-object {
+  font-family: "PP Object Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.leading-dense {
+  line-height: 1.08;
+}
+
+.tracking-dense {
+  letter-spacing: -0.01em;
+}
+
+/* Feature icon shadows matching RC */
+.shadow-feature-blue {
+  box-shadow: 0 4px 16px rgba(87, 108, 219, 0.15);
+}
+
+.shadow-feature-red {
+  box-shadow: 0 4px 16px rgba(242, 84, 91, 0.15);
+}
+
+.shadow-feature-green {
+  box-shadow: 0 4px 16px rgba(17, 212, 131, 0.15);
+}
+
+/* Card shadow matching RC */
+.shadow-card {
+  box-shadow: 0 20px 30px 0px rgba(144, 138, 208, 0.1), 5px 5px 20px 0 rgba(71, 92, 133, 0.05);
+}
+
+/* Container matching RC */
+.container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Section spacing */
+.section-spacing {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+@media (max-width: 1280px) {
+  .section-spacing {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+/* ===== V2 Theme — Accents & Energy ===== */
+.v2-theme {
+  --v2-gradient: linear-gradient(135deg, #576CDB 0%, #4A3DDC 40%, #F2545B 100%);
+  --v2-gradient-blue: linear-gradient(135deg, #576CDB, #4A3DDC);
+  --v2-gradient-warm: linear-gradient(135deg, #F2545B, #FF7B54);
+}
+
+/* Gradient text — bold and visible */
+.v2-theme .v2-gradient-text {
+  background: var(--v2-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Accent left border on feature items */
+.v2-theme .v2-accent-border-blue {
+  border-left: 3px solid #576CDB;
+  padding-left: 1rem;
+}
+.v2-theme .v2-accent-border-red {
+  border-left: 3px solid #F2545B;
+  padding-left: 1rem;
+}
+.v2-theme .v2-accent-border-green {
+  border-left: 3px solid #11D483;
+  padding-left: 1rem;
+}
+
+/* Card hover lift — more dramatic */
+.v2-theme .v2-card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.v2-theme .v2-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 50px rgba(87, 108, 219, 0.2), 0 8px 20px rgba(144, 138, 208, 0.12);
+}
+
+/* Section gradient backgrounds — more visible */
+.v2-theme .v2-section-gradient-blue {
+  background: linear-gradient(180deg, #F3F4FF 0%, #E8EAFF 50%, #F3F4FF 100%);
+}
+.v2-theme .v2-section-gradient-warm {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF0EE 50%, #FFFFFF 100%);
+}
+.v2-theme .v2-section-gradient-green {
+  background: linear-gradient(180deg, #F9F9FB 0%, #E5FFF2 50%, #F9F9FB 100%);
+}
+
+/* Badge */
+.v2-theme .v2-badge-new {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--v2-gradient-blue);
+  color: white;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Animated underline on links */
+.v2-theme .v2-link-underline {
+  position: relative;
+}
+.v2-theme .v2-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--v2-gradient);
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+.v2-theme .v2-link-underline:hover::after {
+  width: 100%;
+}
+
+/* Gradient button */
+.v2-theme .v2-btn-gradient {
+  background: var(--v2-gradient-blue);
+  transition: all 0.3s ease;
+}
+.v2-theme .v2-btn-gradient:hover {
+  box-shadow: 0 8px 30px rgba(87, 108, 219, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Glow effect behind hero heading */
+.v2-theme .v2-hero-glow {
+  position: relative;
+}
+.v2-theme .v2-hero-glow::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: -60px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(87, 108, 219, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Colored icon circles — bigger shadow */
+.v2-theme .shadow-feature-blue {
+  box-shadow: 0 6px 24px rgba(87, 108, 219, 0.25);
+}
+.v2-theme .shadow-feature-red {
+  box-shadow: 0 6px 24px rgba(242, 84, 91, 0.25);
+}
+.v2-theme .shadow-feature-green {
+  box-shadow: 0 6px 24px rgba(17, 212, 131, 0.25);
+}
+
+/* Card shadow — more prominent */
+.v2-theme .shadow-card {
+  box-shadow: 0 24px 40px rgba(87, 108, 219, 0.12), 5px 5px 24px rgba(71, 92, 133, 0.08);
+}
+
+/* Shimmer effect on buttons */
+.v2-theme .v2-btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.v2-theme .v2-btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shimmer 3s infinite;
+}
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes v2float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
 }

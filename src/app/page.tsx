@@ -1,65 +1,69 @@
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-6 py-20">
+      <div className="max-w-2xl mx-auto text-center">
+        {/* Logo */}
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+          src="/logo.svg"
+          alt="RevenueCat"
+          width={180}
+          height={40}
+          className="mx-auto mb-12"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+        {/* Greeting */}
+        <h1 className="font-object text-[2.5rem] max-md:text-[1.75rem] font-medium tracking-tight text-primary leading-[1.15] mb-6">
+          Hi, RevenueCat team!
+        </h1>
+
+        <div className="text-lg max-md:text-base text-gray-800 leading-relaxed space-y-4 mb-12">
+          <p>
+            Thank you for this opportunity. I built two versions of the
+            &quot;For Product&quot; landing page to show how the same
+            narrative can live in different visual treatments.
+          </p>
+          <p>
+            <strong className="text-primary">Version 1</strong> stays true to
+            your current design system — same components, typography, and
+            patterns from revenuecat.com. It&apos;s designed to feel like it
+            could ship tomorrow.
+          </p>
+          <p>
+            <strong className="text-primary">Version 2</strong> takes the same
+            copy and structure but explores a bolder visual direction — more
+            color, more energy, more personality. Think of it as a
+            conversation starter about where the brand could go.
+          </p>
+          <p className="text-base text-gray-750">
+            Both pages share the same messaging, narrative arc, and PM-focused
+            positioning. The difference is purely visual.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+          <Link
+            href="/v1"
+            className="transition-colors duration-300 whitespace-nowrap font-object font-medium relative inline-flex w-fit items-center justify-center gap-1 bg-secondary-blue-1 hover:bg-secondary-blue-2 text-white h-14 rounded-full text-base px-10 tracking-dense"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Version 1 — RC Style
+          </Link>
+          <Link
+            href="/v2"
+            className="transition-colors duration-300 whitespace-nowrap font-object font-medium relative inline-flex w-fit items-center justify-center gap-1 bg-primary hover:bg-secondary-blue-2 text-white h-14 rounded-full text-base px-10 tracking-dense"
           >
-            Documentation
-          </a>
+            Version 2 — With a Spark
+          </Link>
         </div>
-      </main>
+
+        {/* Signature */}
+        <p className="mt-16 text-sm text-gray-750">
+          Made with Claude Code by Polina
+        </p>
+      </div>
     </div>
   );
 }
