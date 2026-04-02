@@ -1,85 +1,68 @@
-import { BoltIcon, ChartIcon, GlobeIcon } from "./Icons";
-
 const pillars = [
   {
-    title: "Iterate on monetization",
-    description: "Change your paywall on Monday. See results by Friday. No engineers required.",
+    strong: "Iterate on monetization.",
+    description: "No-code Paywalls, A/B Experiments with LTV prediction, and Targeting by segment. Ship changes without a release\u00A0cycle.",
     tags: ["Paywalls", "Experiments"],
-    glowColor: "bg-[#C1C9F6]",
-    borderGradient: "linear-gradient(rgb(249,249,251),rgb(249,249,251)) padding-box, linear-gradient(135deg, rgb(184,194,224) 0%, rgba(234,237,246,0) 100%) border-box, linear-gradient(rgb(234,237,246),rgb(234,237,246)) border-box",
-    iconColor: "shadow-feature-blue text-secondary-blue-1",
+    image: "https://cdn.sanity.io/images/c3qnx9b0/production/5545eb21689d9a03dd3c359037594cc7a1a3c05b-1184x960.jpg?w=1184&q=90&auto=format",
   },
   {
-    title: "Understand your subscribers",
-    description: "Know which paywall actually earns, not just which one gets the most clicks.",
+    strong: "Understand your subscribers.",
+    description: "Real-time Charts, Cohort Explorer, and LTV Prediction. Track conversion, churn, and payback period in one\u00A0place.",
     tags: ["Charts", "Experiments", "Cohort Explorer"],
-    glowColor: "bg-[#F7D4D4]",
-    borderGradient: "linear-gradient(rgb(249,249,251),rgb(249,249,251)) padding-box, linear-gradient(135deg, rgb(224,184,184) 0%, rgba(234,237,246,0) 100%) border-box, linear-gradient(rgb(234,237,246),rgb(234,237,246)) border-box",
-    iconColor: "shadow-feature-red text-secondary-red",
+    image: "https://www.revenuecat.com/static/f6dec0fa8f50eec1b8f1dc02ffa29e43/17d8e/card1.png",
   },
   {
-    title: "Expand beyond the App Store",
-    description: "Start converting users before they ever open the App Store. Keep more of what you earn.",
+    strong: "Expand beyond the App\u00A0Store.",
+    description: "Web Funnels with branching logic, Stripe-powered Web Billing, and cross-platform entitlements. Skip the 30%\u00A0cut.",
     tags: ["Funnels", "Web Billing"],
-    glowColor: "bg-[#C1F6E0]",
-    borderGradient: "linear-gradient(rgb(249,249,251),rgb(249,249,251)) padding-box, linear-gradient(135deg, rgb(184,224,207) 0%, rgba(234,237,246,0) 100%) border-box, linear-gradient(rgb(234,237,246),rgb(234,237,246)) border-box",
-    iconColor: "shadow-feature-green text-secondary-green",
+    image: "https://www.revenuecat.com/static/fdd7b665b38675d0cb13876d0561e087/17d8e/card3.png",
   },
 ];
 
 export function Pillars() {
   return (
-    <section className="bg-white py-28 max-xl:py-20 max-md:py-14">
+    <section className="bg-white py-40 max-xl:py-30 max-lg:py-28 max-sm:py-20">
       <div className="container">
         <header className="mb-12 flex flex-col items-center gap-4 text-center max-md:mb-10">
           <h2 className="font-object leading-dense font-medium tracking-tighter text-balance text-primary max-w-4xl max-lg:max-w-2xl text-[2.25rem] max-lg:text-[1.625rem] text-center mx-auto">
-            Own your monetization, without waiting for engineering
+            One platform,<br />three ways to grow
           </h2>
-          <p className="text-xl font-light text-gray-800 max-w-2xl max-md:text-base">
-            Built for product managers who want to move fast on pricing, paywalls, and subscription monetization.
+          <p className="text-xl font-light text-gray-800 max-w-2xl text-pretty max-md:text-base">
+            From your first paywall to global web billing,<br />RevenueCat covers the full monetization lifecycle.
           </p>
         </header>
 
         <ul className="grid grid-cols-3 gap-8 max-xl:gap-6 max-lg:mx-auto max-lg:max-w-md max-lg:grid-cols-1 max-lg:gap-5">
           {pillars.map((pillar) => (
             <li
-              key={pillar.title}
-              className="relative overflow-hidden rounded-2xl border border-transparent p-5 px-6 max-xl:rounded-xl max-xl:p-4 max-xl:px-5"
-              style={{ background: pillar.borderGradient }}
+              key={pillar.strong}
+              className="relative h-full overflow-hidden rounded-2xl border border-border-light bg-gray-50 max-lg:rounded-xl"
             >
-              <div
-                className={`pointer-events-none absolute top-0 -left-7.5 size-50 rounded-full opacity-50 blur-[120px] ${pillar.glowColor}`}
-                aria-hidden="true"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="pointer-events-none w-full object-cover object-bottom"
+                height={491}
+                width={384}
+                src={pillar.image}
+                alt=""
               />
-              <div className="relative z-10 flex h-full flex-col gap-6">
-                <div className="flex flex-col gap-5">
-                  <div
-                    className={`flex size-15 shrink-0 items-center justify-center rounded-full bg-white/80 ${pillar.iconColor}`}
-                    aria-hidden="true"
-                  >
-                    <span className="inline-flex items-center justify-center size-7">
-                      {pillar.title.includes("Iterate") ? <BoltIcon /> : pillar.title.includes("Understand") ? <ChartIcon /> : <GlobeIcon />}
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-3.5">
-                    <h3 className="font-object text-[28px] leading-snug tracking-tighter text-primary max-xl:text-2xl max-sm:text-xl">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-base leading-normal font-light text-gray-800">
-                      {pillar.description}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-2 mt-auto">
+              <div className="absolute inset-x-0 bottom-0 p-6 max-xl:p-5 bg-gradient-to-t from-gray-50 from-55% to-transparent pt-20">
+                <div className="flex flex-wrap gap-1.5 mb-3">
                   {pillar.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium font-object bg-white/60 text-secondary-blue-1"
+                      className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-medium font-object bg-white/80 text-secondary-blue-1 backdrop-blur-sm"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
+                <p className="font-light leading-snug text-gray-800 max-lg:text-sm">
+                  <strong className="block font-object font-medium leading-tight text-primary mb-1.5 text-base">
+                    {pillar.strong}
+                  </strong>
+                  {pillar.description}
+                </p>
               </div>
             </li>
           ))}

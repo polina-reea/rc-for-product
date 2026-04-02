@@ -1,75 +1,218 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import { ArrowIcon } from "../ArrowIcon";
-import { FloatingBlobs } from "./FloatingBlobs";
 import { GlobeIcon, BillingIcon } from "../Icons";
-import { ExpandSequence } from "../ExpandSequence";
+import { StepFunnels, StepBilling } from "../ExpandSequence";
+
+const features = [
+  {
+    id: "funnels",
+    icon: <GlobeIcon />,
+    iconColor: "shadow-feature-blue text-secondary-blue-1",
+    title: "Build web funnels",
+    description: "Multi-step funnels with branching logic. Segment by country, survey response, or UTM\u00A0source. Step-by-step conversion analytics show exactly where users drop\u00A0off.",
+    link: "https://www.revenuecat.com/feature/funnels/",
+    linkText: "Explore Funnels",
+  },
+  {
+    id: "billing",
+    icon: <BillingIcon />,
+    iconColor: "shadow-feature-green text-secondary-green",
+    title: "Skip the 30%",
+    description: "Stripe, Apple Pay, or Google Pay checkout. Test prices the App Store won\u2019t let you. Web purchases auto-unlock in-app\u00A0entitlements.",
+    link: "https://www.revenuecat.com/feature/billing/",
+    linkText: "Explore Web Billing",
+  },
+];
+
+function PanelFunnels() {
+  return (
+    <div className="flex items-center justify-center h-full">
+      <StepFunnels />
+    </div>
+  );
+}
+
+function PanelBilling() {
+  return (
+    <div className="flex items-center justify-center h-full">
+      <StepBilling />
+    </div>
+  );
+}
+
+const panels = [PanelFunnels, PanelBilling];
 
 export function SectionExpandV2() {
+  const [active, setActive] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const sectionHeight = sectionRef.current.offsetHeight;
+      const viewportH = window.innerHeight;
+
+      const scrolled = (viewportH - rect.top) / sectionHeight;
+      const featureProgress = Math.max(0, (scrolled - 0.3) / 0.5);
+      const idx = Math.min(1, Math.max(0, Math.floor(featureProgress * 2)));
+      setActive(idx);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="relative bg-gray-50 py-40 max-xl:py-30 max-lg:py-28 max-sm:py-20" id="expand">
-      <FloatingBlobs color="green" />
-      <div className="container relative z-10">
-        <h2 className="font-object leading-dense font-medium tracking-tighter text-primary text-[3.5rem] max-xl:text-[2.75rem] max-lg:text-[2.25rem] max-sm:text-[1.875rem] mx-auto mb-12 max-w-[48rem] text-center text-pretty max-lg:mb-10 max-md:mb-8">
-          Reach users before the{" "}<span className="v2-gradient-text">App Store</span>
+    <section
+      ref={sectionRef}
+      className="relative bg-gray-50"
+      id="expand"
+      style={{ minHeight: "250vh" }}
+    >
+      {/* Heading — scrolls away naturally */}
+      <div className="container relative z-10 pt-40 pb-12 max-xl:pt-30 max-lg:pt-28 max-sm:pt-20">
+        <h2 className="font-object leading-dense font-medium tracking-tighter text-primary text-[3.25rem] max-xl:text-[2.5rem] max-lg:text-[2rem] max-sm:text-[1.625rem] mx-auto mb-4 max-w-[48rem] text-center text-pretty">
+          Reach users<br /><span className="v2-gradient-text">before the App Store</span>
         </h2>
-        <p className="text-xl leading-snug font-light text-gray-800 max-w-2xl mx-auto text-center mb-16 max-md:text-base">
-<a href="https://www.revenuecat.com/state-of-subscription-apps-2025/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-light underline-offset-4 hover:decoration-secondary-blue-1 transition-colors">41% of top subscription apps</a>{" "}already generate revenue through the web.
-          If your monetization starts at the download, you&apos;re starting too late.
+        <p className="text-xl leading-snug font-light text-gray-800 max-w-2xl mx-auto text-center text-pretty max-md:text-base">
+          <a href="https://www.revenuecat.com/state-of-subscription-apps-2025/" target="_blank" rel="noopener noreferrer" className="text-secondary-blue-1 underline decoration-secondary-blue-1/40 underline-offset-4 hover:decoration-secondary-blue-1 transition-colors">41% of top subscription apps</a>{" "}already generate revenue through the web.<br />If your monetization starts at the download, you&apos;re starting too&nbsp;late.
         </p>
+      </div>
 
-        <div className="flex max-md:flex-col max-md:gap-8 flex-row">
-          <div className="mx-auto flex shrink flex-col justify-center pr-24 max-xl:pr-13 max-md:pr-0 max-md:px-4">
-            <ul className="flex flex-col gap-7">
-              <li className="relative flex gap-4.5 max-xl:gap-3.5">
-                <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/80 shadow-feature-blue text-secondary-blue-1" aria-hidden="true">
-                  <span className="inline-flex items-center justify-center size-5"><GlobeIcon /></span>
-                </div>
-                <div className="flex max-w-140 flex-col gap-4 max-md:gap-2">
-                  <h3 className="mt-2 font-object text-2xl leading-none tracking-tighter text-primary max-xl:text-xl">
-                    Web-to-app onboarding
-                  </h3>
-                  <p className="-mt-1.75 text-xl leading-snug font-light text-gray-800 max-xl:text-base">
-                    Multi-step funnels with branching logic. Segment by country,
-                    survey answers, or UTM source. Built-in analytics show exactly
-                    where users drop off.
+      {/* Sticky container — only the two-column content pins */}
+      <div className="sticky top-16 min-h-[calc(100vh-4rem)] flex flex-col">
+        <div className="container relative z-10 flex flex-col flex-1 py-8">
+
+          {/* Desktop: two-column scroll-driven */}
+          <div className="flex gap-16 flex-1 max-lg:hidden">
+            {/* Left — feature nav */}
+            <div className="w-[340px] shrink-0 flex flex-col pl-3">
+              <div className="flex flex-col flex-1">
+                {features.map((f, i) => (
+                  <div
+                    key={f.id}
+                    className="transition-all duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] overflow-hidden"
+                    style={{
+                      flex: active === i ? "1 1 auto" : "0 0 auto",
+                      opacity: active === i ? 1 : 0.35,
+                    }}
+                  >
+                    <div className="flex items-center gap-3 py-3">
+                      <div className={`flex size-10 shrink-0 items-center justify-center rounded-full bg-white transition-all duration-500 ${f.iconColor}`}>
+                        <span className="inline-flex items-center justify-center size-5">{f.icon}</span>
+                      </div>
+                      <h3 className="font-object text-lg leading-tight tracking-tighter text-primary font-medium">
+                        {f.title}
+                      </h3>
+                    </div>
+                    <div
+                      className="overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)]"
+                      style={{
+                        maxHeight: active === i ? "200px" : "0px",
+                        opacity: active === i ? 1 : 0,
+                      }}
+                    >
+                      <div className="pl-[52px] pb-4">
+                        <p className="text-base leading-snug text-gray-800 mb-3">
+                          {f.description}
+                        </p>
+                        <a className="font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium text-sm" href={f.link}>
+                          {f.linkText} <ArrowIcon />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+                {/* Proof point — testimonial card */}
+                <div className="mt-auto pt-6 rounded-xl bg-white p-5 border border-border-light" style={{ boxShadow: "0 4px 12px rgba(144,138,208,0.08)" }}>
+                  <div className="flex items-center gap-3 mb-3">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img className="size-9 rounded-xl object-contain" src="https://cdn.sanity.io/images/c3qnx9b0/production/72bc3edc393f03211054a0a2fbaa95c7baf0ec28-80x80.svg?w=64&q=75&auto=format" alt="Floga" width={36} height={36} />
+                    <div>
+                      <p className="text-sm font-medium text-primary leading-tight">Floga</p>
+                      <p className="text-[12px] text-gray-750 leading-tight">Umberto Mezzadra, CEO</p>
+                    </div>
+                  </div>
+                  <p className="text-[15px] leading-snug text-gray-800 mb-2.5">
+                    Generated <strong className="font-medium v2-gradient-text">$120K+ in one&nbsp;day</strong>{" "}of pre-launch lifetime memberships via RevenueCat Web&nbsp;Billing.
                   </p>
-                  <a className="font-object inline-flex items-center rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 gap-2 font-medium" href="https://www.revenuecat.com/feature/funnels/">
-                    Explore Funnels <ArrowIcon />
+                  <a className="font-object inline-flex items-center gap-1 text-[13px] text-secondary-blue-1 hover:text-secondary-blue-2 font-medium transition-colors" href="https://www.revenuecat.com/customers/floga" target="_blank" rel="noopener noreferrer">
+                    Read Case Study
+                    <svg className="w-1.5! shrink-0" viewBox="0 0 7 9" xmlns="http://www.w3.org/2000/svg"><path clipRule="evenodd" d="m0 9.002 6.998-3.844V3.844L0 0v1.711l5.08 2.79L0 7.291z" fill="currentColor" fillRule="evenodd" /></svg>
                   </a>
                 </div>
-              </li>
+              </div>
+            </div>
 
-              <li className="relative flex gap-4.5 max-xl:gap-3.5">
-                <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/80 shadow-feature-green text-secondary-green" aria-hidden="true">
-                  <span className="inline-flex items-center justify-center size-5"><BillingIcon /></span>
-                </div>
-                <div className="flex max-w-140 flex-col gap-4 max-md:gap-2">
-                  <h3 className="mt-2 font-object text-2xl leading-none tracking-tighter text-primary max-xl:text-xl">
-                    Skip the 30%
-                  </h3>
-                  <p className="-mt-1.75 text-xl leading-snug font-light text-gray-800 max-xl:text-base">
-                    Offer subscriptions on the web with Stripe, Apple Pay, or Google Pay.
-                    Full pricing flexibility. Web purchases automatically unlock access inside your app.
-                  </p>
-                  <a className="font-object inline-flex items-center rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 gap-2 font-medium" href="https://www.revenuecat.com/feature/billing/">
-                    Explore Web Billing <ArrowIcon />
-                  </a>
-                </div>
-              </li>
-            </ul>
-
-            {/* Proof point */}
-            <div className="mt-12 bg-white rounded-2xl p-7 shadow-card border border-border">
-              <p className="text-lg leading-normal font-light text-gray-800">
-                <strong className="font-medium text-primary">Floga</strong> generated{" "}
-                <span className="font-medium text-secondary-red">six figures</span> in revenue
-                before their app was even live.
-              </p>
+            {/* Right — visual panel (crossfade) */}
+            <div className="flex-1 relative min-h-[450px]">
+              <div className="absolute inset-0 rounded-2xl bg-white/40 border border-border-light/50 backdrop-blur-sm" />
+              <div className="absolute inset-0 flex items-center justify-center scale-[1.2] max-xl:scale-100">
+                {panels.map((Panel, i) => (
+                  <div
+                    key={features[i].id}
+                    className="absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)]"
+                    style={{
+                      opacity: active === i ? 1 : 0,
+                      transform: active === i ? "translateY(0) scale(1)" : active > i ? "translateY(-20px) scale(0.98)" : "translateY(20px) scale(0.98)",
+                      pointerEvents: active === i ? "auto" : "none",
+                    }}
+                  >
+                    <Panel />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Animated: Funnels → Web Billing */}
-          <div className="pointer-events-none relative w-[55%] max-lg:w-full flex items-center">
-            <ExpandSequence />
+          {/* Mobile/tablet fallback */}
+          <div className="hidden max-lg:block">
+            <div className="flex flex-col gap-10">
+              {features.map((f, i) => {
+                const Panel = panels[i];
+                return (
+                  <div key={f.id} className="flex flex-col gap-5">
+                    <div className="flex gap-3.5">
+                      <div className={`flex size-10 shrink-0 items-center justify-center rounded-full bg-white ${f.iconColor}`}>
+                        <span className="inline-flex items-center justify-center size-5">{f.icon}</span>
+                      </div>
+                      <div>
+                        <h3 className="font-object text-xl leading-tight tracking-tighter text-primary font-medium mb-2">{f.title}</h3>
+                        <p className="text-base leading-snug text-gray-800 mb-3">{f.description}</p>
+                        <a className="font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium text-sm" href={f.link}>
+                          {f.linkText} <ArrowIcon />
+                        </a>
+                      </div>
+                    </div>
+                    <div className="h-[280px] rounded-2xl bg-white/40 border border-border-light/50">
+                      <Panel />
+                    </div>
+                  </div>
+                );
+              })}
+              <div className="rounded-xl bg-white p-4 border border-border-light" style={{ boxShadow: "0 4px 12px rgba(144,138,208,0.08)" }}>
+                <div className="flex items-center gap-2.5 mb-3">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img className="size-8 rounded-lg object-contain" src="https://cdn.sanity.io/images/c3qnx9b0/production/72bc3edc393f03211054a0a2fbaa95c7baf0ec28-80x80.svg?w=64&q=75&auto=format" alt="Floga" width={32} height={32} />
+                  <div>
+                    <p className="text-[12px] font-medium text-primary leading-tight">Floga</p>
+                    <p className="text-[11px] text-gray-750 leading-tight">Fitness Community</p>
+                  </div>
+                </div>
+                <p className="text-[13px] leading-snug text-gray-800 mb-2">
+                  Generated <strong className="font-medium text-primary">$120K+ in one&nbsp;day</strong>{" "}of pre-launch lifetime memberships via RevenueCat Web&nbsp;Billing.
+                </p>
+                <a className="font-object inline-flex items-center gap-1 text-[12px] text-secondary-blue-1 hover:text-secondary-blue-2 font-medium transition-colors" href="https://www.revenuecat.com/customers/floga" target="_blank" rel="noopener noreferrer">
+                  Read Case Study
+                  <svg className="w-1.5! shrink-0" viewBox="0 0 7 9" xmlns="http://www.w3.org/2000/svg"><path clipRule="evenodd" d="m0 9.002 6.998-3.844V3.844L0 0v1.711l5.08 2.79L0 7.291z" fill="currentColor" fillRule="evenodd" /></svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -10,11 +10,10 @@ export function Hero() {
           <span className="text-sm font-medium font-object">For Product Teams</span>
         </p>
         <h1 className="font-object font-medium text-balance text-primary max-w-4xl max-lg:max-w-2xl max-md:max-w-xl text-[56px] max-xl:text-[2.75rem] max-lg:text-[2.25rem] max-sm:text-[1.75rem] leading-[1.12] tracking-[-0.04em] text-left max-xl:text-center">
-          Your monetization shouldn&apos;t need an engineering sprint
+          Stop waiting on engineering.<br />Start shipping.
         </h1>
         <p className="mt-6 text-xl leading-snug font-light text-gray-800 max-w-lg max-xl:text-center max-xl:mx-auto max-md:text-base">
-          Design paywalls, test pricing, and ship changes, all from the
-          dashboard. No release cycles, no tickets, no waiting.
+          Design paywalls, run A/B experiments, and ship remotely. All from the dashboard. No&nbsp;app&nbsp;release, no&nbsp;eng&nbsp;tickets, no&nbsp;waiting.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-8 max-xl:gap-5 max-lg:justify-center">
           <a
@@ -36,7 +35,7 @@ export function Hero() {
       </div>
 
       {/* Right side — testimonial carousel */}
-      <div className="flex-1 flex items-center justify-center max-xl:mt-10 min-h-[520px] max-xl:min-h-[480px] max-lg:min-h-0">
+      <div className="flex-1 flex items-center justify-center max-xl:mt-10 min-h-[520px] max-xl:min-h-[480px] max-lg:min-h-0 max-md:min-h-[400px]">
         <TestimonialCarousel />
       </div>
     </div>

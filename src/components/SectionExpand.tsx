@@ -6,12 +6,11 @@ export function SectionExpand() {
   return (
     <section className="bg-gray-50 py-40 max-xl:py-30 max-lg:py-28 max-sm:py-20" id="expand">
       <div className="container">
-        <h2 className="font-object leading-dense font-medium tracking-tighter text-primary text-[3.5rem] max-xl:text-[2.75rem] max-lg:text-[2.25rem] max-sm:text-[1.875rem] mx-auto mb-12 max-w-[48rem] text-center text-pretty max-lg:mb-10 max-md:mb-8">
-          Reach users before the App Store
+        <h2 className="font-object leading-dense font-medium tracking-tighter text-primary text-[3.25rem] max-xl:text-[2.5rem] max-lg:text-[2rem] max-sm:text-[1.625rem] mx-auto mb-12 max-w-[48rem] text-center text-pretty max-lg:mb-10 max-md:mb-8">
+          Reach users<br />before the App Store
         </h2>
-        <p className="text-xl leading-snug font-light text-gray-800 max-w-2xl mx-auto text-center mb-16 max-md:text-base">
-<a href="https://www.revenuecat.com/state-of-subscription-apps-2025/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-light underline-offset-4 hover:decoration-secondary-blue-1 transition-colors">41% of top subscription apps</a>{" "}already generate revenue through the web.
-          If your monetization starts at the download, you&apos;re starting too late.
+        <p className="text-xl leading-snug font-light text-gray-800 max-w-2xl mx-auto text-center mb-16 text-pretty max-md:text-base">
+<a href="https://www.revenuecat.com/state-of-subscription-apps-2025/" target="_blank" rel="noopener noreferrer" className="text-secondary-blue-1 underline decoration-secondary-blue-1/40 underline-offset-4 hover:decoration-secondary-blue-1 transition-colors">41% of top subscription apps</a>{" "}already generate revenue through the web.<br />If your monetization starts at the download, you&apos;re starting too late.
         </p>
 
         <div className="flex max-md:flex-col max-md:gap-8 flex-row">
@@ -26,9 +25,7 @@ export function SectionExpand() {
                     Web-to-app onboarding
                   </h3>
                   <p className="-mt-1.75 text-xl leading-snug font-light text-gray-800 max-xl:text-base">
-                    Multi-step funnels with branching logic. Segment by country,
-                    survey answers, or UTM source. Built-in analytics show exactly
-                    where users drop off.
+                    Multi-step funnels with branching logic. Segment by country, survey response, or UTM&nbsp;source. Step-by-step conversion analytics show exactly where users drop&nbsp;off.
                   </p>
                   <a className="font-object inline-flex items-center rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 gap-2 font-medium" href="https://www.revenuecat.com/feature/funnels/">
                     Explore Funnels <ArrowIcon />
@@ -45,8 +42,7 @@ export function SectionExpand() {
                     Skip the 30%
                   </h3>
                   <p className="-mt-1.75 text-xl leading-snug font-light text-gray-800 max-xl:text-base">
-                    Offer subscriptions on the web with Stripe, Apple Pay, or Google Pay.
-                    Full pricing flexibility. Web purchases automatically unlock access inside your app.
+                    Stripe, Apple Pay, or Google Pay checkout. Test prices the App Store won&apos;t let you. Web purchases auto-unlock in-app&nbsp;entitlements.
                   </p>
                   <a className="font-object inline-flex items-center rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 gap-2 font-medium" href="https://www.revenuecat.com/feature/billing/">
                     Explore Web Billing <ArrowIcon />
@@ -55,13 +51,23 @@ export function SectionExpand() {
               </li>
             </ul>
 
-            {/* Proof point */}
-            <div className="mt-12 bg-white rounded-2xl p-7 shadow-card border border-border">
-              <p className="text-lg leading-normal font-light text-gray-800">
-                <strong className="font-medium text-primary">Floga</strong> generated{" "}
-                <span className="font-medium text-secondary-red">six figures</span> in revenue
-                before their app was even live.
+            {/* Inline testimonial */}
+            <div className="mt-12 rounded-xl bg-white p-5 border border-border-light" style={{ boxShadow: "0 4px 12px rgba(144,138,208,0.08)" }}>
+              <div className="flex items-center gap-3 mb-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="size-9 rounded-xl object-contain" src="https://cdn.sanity.io/images/c3qnx9b0/production/72bc3edc393f03211054a0a2fbaa95c7baf0ec28-80x80.svg?w=64&q=75&auto=format" alt="Floga" width={36} height={36} />
+                <div>
+                  <p className="text-sm font-medium text-primary leading-tight">Floga</p>
+                  <p className="text-[12px] text-gray-750 leading-tight">Umberto Mezzadra, CEO</p>
+                </div>
+              </div>
+              <p className="text-[15px] leading-snug text-gray-800 mb-2.5">
+                Generated <strong className="font-medium text-secondary-blue-1">$120K+ in one&nbsp;day</strong>{" "}of pre-launch lifetime memberships via RevenueCat Web&nbsp;Billing.
               </p>
+              <a className="font-object inline-flex items-center gap-1 text-[13px] text-secondary-blue-1 hover:text-secondary-blue-2 font-medium transition-colors" href="https://www.revenuecat.com/customers/floga" target="_blank" rel="noopener noreferrer">
+                Read Case Study
+                <svg className="w-1.5! shrink-0" viewBox="0 0 7 9" xmlns="http://www.w3.org/2000/svg"><path clipRule="evenodd" d="m0 9.002 6.998-3.844V3.844L0 0v1.711l5.08 2.79L0 7.291z" fill="currentColor" fillRule="evenodd" /></svg>
+              </a>
             </div>
           </div>
 

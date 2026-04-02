@@ -1,0 +1,90 @@
+<svg width="560" height="280" viewBox="0 0 560 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Refund Requests Table -->
+  <g transform="translate(0, 30)">
+    <rect x="0" y="0" width="260" height="220" rx="12" fill="white" stroke="#EAEDF6" stroke-width="1"/>
+    <!-- Header -->
+    <text x="20" y="28" font-family="sans-serif" font-size="11" font-weight="600" fill="#1F1F47">Request</text>
+    <text x="120" y="28" font-family="sans-serif" font-size="11" font-weight="600" fill="#1F1F47">Amount</text>
+    <text x="200" y="28" font-family="sans-serif" font-size="11" font-weight="600" fill="#1F1F47">Status</text>
+    <line x1="12" y1="40" x2="248" y2="40" stroke="#EAEDF6" stroke-width="1"/>
+
+    <!-- Row 1 -->
+    <circle cx="28" cy="60" r="8" fill="#576CDB" opacity="0.15"/>
+    <text x="22" y="64" font-family="sans-serif" font-size="8" fill="#576CDB" font-weight="600">R</text>
+    <text x="44" y="64" font-family="sans-serif" font-size="11" fill="#3D3D5C">User 4201</text>
+    <text x="120" y="64" font-family="sans-serif" font-size="11" fill="#3D3D5C">$14.99</text>
+    <rect x="195" y="52" width="52" height="18" rx="9" fill="#11D483" opacity="0.15"/>
+    <text x="205" y="64" font-family="sans-serif" font-size="9" fill="#11D483" font-weight="500">Denied</text>
+
+    <!-- Row 2 -->
+    <line x1="12" y1="78" x2="248" y2="78" stroke="#EAEDF6" stroke-width="0.5"/>
+    <circle cx="28" cy="98" r="8" fill="#11D483" opacity="0.15"/>
+    <text x="23" y="102" font-family="sans-serif" font-size="8" fill="#11D483" font-weight="600">R</text>
+    <text x="44" y="102" font-family="sans-serif" font-size="11" fill="#3D3D5C">User 4198</text>
+    <text x="120" y="102" font-family="sans-serif" font-size="11" fill="#3D3D5C">$9.99</text>
+    <rect x="195" y="90" width="52" height="18" rx="9" fill="#11D483" opacity="0.15"/>
+    <text x="205" y="102" font-family="sans-serif" font-size="9" fill="#11D483" font-weight="500">Denied</text>
+
+    <!-- Row 3 -->
+    <line x1="12" y1="116" x2="248" y2="116" stroke="#EAEDF6" stroke-width="0.5"/>
+    <circle cx="28" cy="136" r="8" fill="#F2545B" opacity="0.15"/>
+    <text x="23" y="140" font-family="sans-serif" font-size="8" fill="#F2545B" font-weight="600">R</text>
+    <text x="44" y="140" font-family="sans-serif" font-size="11" fill="#3D3D5C">User 4195</text>
+    <text x="120" y="140" font-family="sans-serif" font-size="11" fill="#3D3D5C">$29.99</text>
+    <rect x="195" y="128" width="62" height="18" rx="9" fill="#F2545B" opacity="0.15"/>
+    <text x="203" y="140" font-family="sans-serif" font-size="9" fill="#F2545B" font-weight="500">Approved</text>
+
+    <!-- Row 4 -->
+    <line x1="12" y1="154" x2="248" y2="154" stroke="#EAEDF6" stroke-width="0.5"/>
+    <circle cx="28" cy="174" r="8" fill="#576CDB" opacity="0.15"/>
+    <text x="23" y="178" font-family="sans-serif" font-size="8" fill="#576CDB" font-weight="600">R</text>
+    <text x="44" y="178" font-family="sans-serif" font-size="11" fill="#3D3D5C" opacity="0.5">User 4192</text>
+    <text x="120" y="178" font-family="sans-serif" font-size="11" fill="#3D3D5C" opacity="0.5">$4.99</text>
+    <rect x="195" y="166" width="52" height="18" rx="9" fill="#11D483" opacity="0.1"/>
+    <text x="205" y="178" font-family="sans-serif" font-size="9" fill="#11D483" opacity="0.5" font-weight="500">Denied</text>
+  </g>
+
+  <!-- Refund Rate Chart -->
+  <g transform="translate(285, 0)">
+    <rect x="0" y="0" width="275" height="250" rx="12" fill="white" stroke="#EAEDF6" stroke-width="1"/>
+    <text x="20" y="28" font-family="sans-serif" font-size="12" font-weight="600" fill="#1F1F47">Refund Save Rate</text>
+
+    <!-- Y axis labels -->
+    <text x="20" y="60" font-family="sans-serif" font-size="9" fill="#9CA3AF">100%</text>
+    <text x="26" y="100" font-family="sans-serif" font-size="9" fill="#9CA3AF">75%</text>
+    <text x="26" y="140" font-family="sans-serif" font-size="9" fill="#9CA3AF">50%</text>
+    <text x="26" y="180" font-family="sans-serif" font-size="9" fill="#9CA3AF">25%</text>
+    <text x="32" y="220" font-family="sans-serif" font-size="9" fill="#9CA3AF">0%</text>
+
+    <!-- Grid lines -->
+    <line x1="55" y1="56" x2="255" y2="56" stroke="#EAEDF6" stroke-width="0.5"/>
+    <line x1="55" y1="96" x2="255" y2="96" stroke="#EAEDF6" stroke-width="0.5"/>
+    <line x1="55" y1="136" x2="255" y2="136" stroke="#EAEDF6" stroke-width="0.5"/>
+    <line x1="55" y1="176" x2="255" y2="176" stroke="#EAEDF6" stroke-width="0.5"/>
+    <line x1="55" y1="216" x2="255" y2="216" stroke="#EAEDF6" stroke-width="0.5"/>
+
+    <!-- Save rate line (green, trending up) -->
+    <polyline points="55,160 95,140 135,130 175,110 215,88 255,72" fill="none" stroke="#11D483" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="55" cy="160" r="4" fill="#11D483"/>
+    <circle cx="95" cy="140" r="4" fill="#11D483"/>
+    <circle cx="135" cy="130" r="4" fill="#11D483"/>
+    <circle cx="175" cy="110" r="4" fill="#11D483"/>
+    <circle cx="215" cy="88" r="4" fill="#11D483"/>
+    <circle cx="255" cy="72" r="4" fill="#11D483"/>
+
+    <!-- Refund rate line (blue, trending down) -->
+    <polyline points="55,120 95,130 135,145 175,155 215,168 255,176" fill="none" stroke="#576CDB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="55" cy="120" r="4" fill="#576CDB"/>
+    <circle cx="95" cy="130" r="4" fill="#576CDB"/>
+    <circle cx="135" cy="145" r="4" fill="#576CDB"/>
+    <circle cx="175" cy="155" r="4" fill="#576CDB"/>
+    <circle cx="215" cy="168" r="4" fill="#576CDB"/>
+    <circle cx="255" cy="176" r="4" fill="#576CDB"/>
+
+    <!-- Legend -->
+    <circle cx="80" cy="238" r="4" fill="#11D483"/>
+    <text x="90" y="242" font-family="sans-serif" font-size="9" fill="#3D3D5C">Save rate</text>
+    <circle cx="160" cy="238" r="4" fill="#576CDB"/>
+    <text x="170" y="242" font-family="sans-serif" font-size="9" fill="#3D3D5C">Refund rate</text>
+  </g>
+</svg>

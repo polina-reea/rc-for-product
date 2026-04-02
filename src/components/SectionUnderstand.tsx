@@ -5,12 +5,11 @@ export function SectionUnderstand() {
   return (
     <section className="bg-white py-40 max-xl:py-30 max-lg:py-28 max-sm:py-20" id="understand">
       <div className="container">
-        <h2 className="font-object leading-dense font-medium tracking-tighter text-primary text-[3.5rem] max-xl:text-[2.75rem] max-lg:text-[2.25rem] max-sm:text-[1.875rem] mx-auto mb-4 max-w-[48rem] text-center text-pretty max-lg:mb-3">
-          Understand what drives growth &amp; do more of it
+        <h2 className="font-object leading-dense font-medium tracking-tighter text-primary text-[3.25rem] max-xl:text-[2.5rem] max-lg:text-[2rem] max-sm:text-[1.625rem] mx-auto mb-4 max-w-[48rem] text-center text-pretty max-lg:mb-3">
+          Understand what drives growth<br />&amp; do more of it
         </h2>
-        <p className="text-xl leading-snug font-light text-gray-800 max-w-2xl mx-auto text-center mb-16 max-md:mb-10 max-md:text-base">
-          Your pricing decision shouldn&apos;t depend on an analyst pulling data
-          from three different dashboards next Tuesday.
+        <p className="text-xl leading-snug font-light text-gray-800 max-w-2xl mx-auto text-center mb-16 text-pretty max-md:mb-10 max-md:text-base">
+          Your pricing decision shouldn&apos;t depend on an analyst<br />pulling data from three different dashboards next Tuesday.
         </p>
 
         {/* Feature list - no cards */}
@@ -19,7 +18,7 @@ export function SectionUnderstand() {
             {
               icon: <LtvIcon />,
               title: "Predict, don\u2019t react",
-              description: "LTV Prediction shows where your revenue is headed. Cohort Explorer lets you slice by any segment or time period.",
+              description: "LTV Prediction forecasts revenue by cohort. Cohort Explorer lets you slice by acquisition source, country, or custom segment.",
               color: "shadow-feature-blue text-secondary-blue-1",
             },
             {
@@ -31,7 +30,7 @@ export function SectionUnderstand() {
             {
               icon: <DataIcon />,
               title: "Your data, everywhere",
-              description: "Pull data into Amplitude, Mixpanel, or your own warehouse via the Charts API. No analyst bottleneck.",
+              description: "Stream events to Amplitude, Mixpanel, Segment, or your warehouse via Charts API and webhooks. No analyst bottleneck.",
               color: "shadow-feature-green text-secondary-green",
             },
           ].map((feature) => (
@@ -57,6 +56,21 @@ export function SectionUnderstand() {
             </li>
           ))}
         </ul>
+
+        {/* Inline testimonial */}
+        <div className="max-w-lg mx-auto mb-10 rounded-xl bg-white p-5 border border-border-light" style={{ boxShadow: "0 4px 12px rgba(144,138,208,0.08)" }}>
+          <div className="flex items-center gap-3 mb-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="size-9 rounded-xl object-contain" src="https://cdn.sanity.io/images/c3qnx9b0/production/89186aeb48369a707fd6e2203f844f63fe4d2174-80x80.svg?w=64&q=75&auto=format" alt="HOLYWATER" width={36} height={36} />
+            <div>
+              <p className="text-sm font-medium text-primary leading-tight">HOLYWATER</p>
+              <p className="text-[12px] text-gray-750 leading-tight">Anatolii Kasianov, CTO</p>
+            </div>
+          </div>
+          <p className="text-[15px] leading-snug text-gray-800">
+            &ldquo;RevenueCat&rsquo;s data is fully integrated into our marketing decisions, directly contributing to <strong className="font-medium text-secondary-blue-1">HOLYWATER&rsquo;s 3.5x YoY&nbsp;growth</strong>.&rdquo;
+          </p>
+        </div>
 
         <div className="text-center">
           <a className="font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium" href="https://www.revenuecat.com/feature/charts/">

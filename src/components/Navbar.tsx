@@ -1,8 +1,40 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export function Navbar() {
+  const [bgWhite, setBgWhite] = useState(false);
+
+  useEffect(() => {
+    const checkBg = () => {
+      // Sample a point just below the navbar (64px tall)
+      const el = document.elementFromPoint(window.innerWidth / 2, 68);
+      if (!el) return;
+
+      // Walk up to find the nearest section/footer with a background
+      let node: Element | null = el;
+      while (node && node !== document.body) {
+        const bg = getComputedStyle(node).backgroundColor;
+        if (bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent") {
+          // rgb(249, 249, 251) is gray-50, rgb(255, 255, 255) is white
+          const isWhite = bg.includes("255, 255, 255");
+          setBgWhite(isWhite);
+          return;
+        }
+        node = node.parentElement;
+      }
+    };
+
+    window.addEventListener("scroll", checkBg, { passive: true });
+    checkBg(); // initial check
+    return () => window.removeEventListener("scroll", checkBg);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 bg-gray-50">
+    <header
+      className={`sticky top-0 z-50 transition-colors duration-500 ${bgWhite ? "bg-white" : "bg-gray-50"}`}
+    >
       <div className="container flex h-16 items-center justify-between">
         <a
           className="font-object inline-flex items-center gap-x-1 rounded transition-colors duration-300 text-primary hover:text-secondary-red z-50 w-max pt-1.5"

@@ -24,13 +24,37 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("/fonts/HelveticaNeueCyr-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("/fonts/HelveticaNeueCyr-Roman.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("/fonts/HelveticaNeueCyr-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
   --color-primary: #1F1F47;
   --color-secondary-blue-1: #576CDB;
   --color-secondary-blue-2: #4A3DDC;
   --color-secondary-red: #F2545B;
   --color-secondary-green: #11D483;
-  --color-gray-800: #1F1F47;
+  --color-gray-800: #3D3D5C;
   --color-gray-750: #6B7280;
   --color-gray-50: #F9F9FB;
   --color-border: #D6DBF5;
@@ -40,7 +64,7 @@
 body {
   background: #ffffff;
   color: var(--color-gray-800);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeueCyr", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
@@ -48,7 +72,7 @@ body {
 
 /* Font utilities matching RC's system */
 .font-object {
-  font-family: "PP Object Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "PP Object Sans", "HelveticaNeueCyr", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .leading-dense {
@@ -61,20 +85,42 @@ body {
 
 /* Feature icon shadows matching RC */
 .shadow-feature-blue {
-  box-shadow: 0 4px 16px rgba(87, 108, 219, 0.15);
+  box-shadow: none;
 }
 
 .shadow-feature-red {
-  box-shadow: 0 4px 16px rgba(242, 84, 91, 0.15);
+  box-shadow: none;
 }
 
 .shadow-feature-green {
-  box-shadow: 0 4px 16px rgba(17, 212, 131, 0.15);
+  box-shadow: none;
 }
 
 /* Card shadow matching RC */
 .shadow-card {
   box-shadow: 0 20px 30px 0px rgba(144, 138, 208, 0.1), 5px 5px 20px 0 rgba(71, 92, 133, 0.05);
+}
+
+@keyframes growBar {
+  from { width: 0; }
+}
+
+/* Scroll snap for V2 */
+.scroll-snap-container {
+  scroll-snap-type: y proximity;
+}
+
+.scroll-snap-container > main > section,
+.scroll-snap-container > main > footer {
+  scroll-snap-align: start;
+}
+
+/* Full-screen sections */
+.snap-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Container matching RC */
@@ -119,7 +165,7 @@ body {
 
 /* ===== V2 Theme — Accents & Energy ===== */
 .v2-theme {
-  --v2-gradient: linear-gradient(135deg, #576CDB 0%, #4A3DDC 40%, #F2545B 100%);
+  --v2-gradient: linear-gradient(89deg, #576DDB -14.77%, #A7A1E2 77.04%, #E38DC2 123.95%);
   --v2-gradient-blue: linear-gradient(135deg, #576CDB, #4A3DDC);
   --v2-gradient-warm: linear-gradient(135deg, #F2545B, #FF7B54);
 }
@@ -228,15 +274,11 @@ body {
   z-index: -1;
 }
 
-/* Colored icon circles — bigger shadow */
-.v2-theme .shadow-feature-blue {
-  box-shadow: 0 6px 24px rgba(87, 108, 219, 0.25);
-}
-.v2-theme .shadow-feature-red {
-  box-shadow: 0 6px 24px rgba(242, 84, 91, 0.25);
-}
+/* Colored icon circles — no shadow in V2 */
+.v2-theme .shadow-feature-blue,
+.v2-theme .shadow-feature-red,
 .v2-theme .shadow-feature-green {
-  box-shadow: 0 6px 24px rgba(17, 212, 131, 0.25);
+  box-shadow: none;
 }
 
 /* Card shadow — more prominent */

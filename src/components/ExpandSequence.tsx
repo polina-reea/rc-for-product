@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 /* Step 1: Funnel builder — editor + survey screens */
-function StepFunnels() {
+export function StepFunnels() {
   return (
     <div className="flex items-start gap-3">
       {/* Funnel editor panel */}
@@ -70,7 +70,7 @@ function StepFunnels() {
 }
 
 /* Step 2: Web billing — purchase email */
-function StepBilling() {
+export function StepBilling() {
   return (
     <div className="relative">
       {/* Dashed circle background */}
@@ -220,7 +220,7 @@ export function ExpandSequence() {
   useEffect(() => {
     const timer = setInterval(() => {
       setStep((prev) => (prev + 1) % 3);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
@@ -231,7 +231,7 @@ export function ExpandSequence() {
 
           {/* Step 0: Funnels */}
           <div
-            className="absolute inset-0 flex items-center justify-center transition-opacity duration-700 ease-in-out"
+            className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ease-in-out"
             style={{ opacity: step === 0 ? 1 : 0, pointerEvents: step === 0 ? "auto" : "none" }}
           >
             <StepFunnels />
@@ -239,7 +239,7 @@ export function ExpandSequence() {
 
           {/* Step 1: Web Checkout */}
           <div
-            className="absolute inset-0 flex items-center justify-center transition-opacity duration-700 ease-in-out"
+            className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ease-in-out"
             style={{ opacity: step === 1 ? 1 : 0, pointerEvents: step === 1 ? "auto" : "none" }}
           >
             <StepCheckout />
@@ -247,7 +247,7 @@ export function ExpandSequence() {
 
           {/* Step 2: Redemption Email */}
           <div
-            className="absolute inset-0 flex items-center justify-center transition-opacity duration-700 ease-in-out"
+            className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ease-in-out"
             style={{ opacity: step === 2 ? 1 : 0, pointerEvents: step === 2 ? "auto" : "none" }}
           >
             <StepBilling />

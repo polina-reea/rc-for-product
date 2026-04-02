@@ -13,7 +13,7 @@ const pillars = [
   },
   {
     title: "Understand your subscribers",
-    description: "Know which paywall actually earns — not just which one gets the most clicks.",
+    description: "Know which paywall actually earns, not just which one gets the most clicks.",
     tags: ["Charts", "LTV Prediction", "Cohorts"],
     accentColor: "#F2545B",
     gradientBg: "from-[#FFF0F0] to-white",
@@ -21,8 +21,8 @@ const pillars = [
     icon: <ChartIcon />,
   },
   {
-    title: "Expand beyond the App Store",
-    description: "Start converting users before they open the App Store. Keep more of what you earn.",
+    title: "Expand beyond the\u00A0App\u00A0Store",
+    description: "Convert users before they ever open the App\u00A0Store. Keep more of what you\u00A0earn.",
     tags: ["Web Funnels", "Web Billing"],
     accentColor: "#11D483",
     gradientBg: "from-[#EDFFF6] to-white",
@@ -38,10 +38,10 @@ export function PillarsV2() {
       <div className="container relative z-10">
         <header className="mb-12 flex flex-col items-center gap-4 text-center max-md:mb-10">
           <h2 className="font-object leading-dense font-medium tracking-tighter text-balance text-primary max-w-4xl max-lg:max-w-2xl text-[2.25rem] max-lg:text-[1.625rem] text-center mx-auto">
-            Own your <span className="v2-gradient-text">monetization</span> — without waiting for engineering
+            <span className="v2-gradient-text">One platform,</span><br />three ways to grow
           </h2>
-          <p className="text-xl font-light text-gray-800 max-w-2xl max-md:text-base">
-            Built for product managers who want to move fast on pricing, paywalls, and the full subscription monetization lifecycle.
+          <p className="text-xl font-light text-gray-800 max-w-2xl text-pretty max-md:text-base">
+            From your first paywall to global web billing,<br />RevenueCat covers the full monetization lifecycle.
           </p>
         </header>
 

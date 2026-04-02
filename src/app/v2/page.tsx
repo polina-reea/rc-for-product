@@ -21,12 +21,12 @@ export default function V2() {
         <HeroV2 />
         <LogoBar />
         <Pillars />
-        <Foundation />
         <SectionIterateV2 />
         <SectionUnderstandV2 />
         <SectionExpandV2 />
         <SectionProtectV2 />
         <Integrations />
+        <Foundation />
         <FinalCtaV2 />
       </main>
       <Footer />
