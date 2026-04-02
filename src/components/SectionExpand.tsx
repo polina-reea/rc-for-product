@@ -1,6 +1,6 @@
 import { ArrowIcon } from "./ArrowIcon";
 import { GlobeIcon, BillingIcon } from "./Icons";
-import { ExpandSequence } from "./ExpandSequence";
+import { ExpandSequence, StepFunnels } from "./ExpandSequence";
 
 export function SectionExpand() {
   return (
@@ -71,9 +71,17 @@ export function SectionExpand() {
             </div>
           </div>
 
-          {/* Animated: Funnels → Web Billing */}
-          <div className="pointer-events-none relative w-[55%] max-lg:w-full flex items-center max-md:scale-75 max-md:origin-top max-sm:scale-[0.6]">
+          {/* Animated: Funnels → Web Billing — desktop */}
+          <div className="pointer-events-none relative w-[55%] max-lg:w-full flex items-center max-md:hidden">
             <ExpandSequence />
+          </div>
+          {/* Static panel — mobile */}
+          <div className="hidden max-md:flex flex-col gap-6 w-full mt-8">
+            <div className="h-[240px] rounded-2xl bg-white/50 border border-border-light/50 overflow-hidden flex items-center justify-center">
+              <div className="scale-[0.7] origin-center">
+                <StepFunnels />
+              </div>
+            </div>
           </div>
         </div>
       </div>

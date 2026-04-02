@@ -1,6 +1,7 @@
 import { ArrowIcon } from "./ArrowIcon";
 import { PaywallIcon, ExperimentIcon, TargetIcon } from "./Icons";
 import { IterateSequence } from "./IterateSequence";
+import { PhoneA, PhoneB, EditorPanel } from "./IterateSequence";
 
 export function SectionIterate() {
   return (
@@ -83,10 +84,19 @@ export function SectionIterate() {
             </div>
           </div>
 
-          {/* Animated sequence */}
-          <div className="relative w-[55%] max-lg:w-full overflow-hidden flex items-center max-md:scale-75 max-md:origin-top max-sm:scale-[0.6]">
+          {/* Animated sequence — desktop */}
+          <div className="relative w-[55%] max-lg:w-full overflow-hidden flex items-center max-md:hidden">
             <div className="pointer-events-none w-full">
               <IterateSequence />
+            </div>
+          </div>
+          {/* Static panels — mobile */}
+          <div className="hidden max-md:flex flex-col gap-6 w-full mt-8">
+            <div className="h-[240px] rounded-2xl bg-white/50 border border-border-light/50 overflow-hidden flex items-center justify-center">
+              <div className="scale-[0.7] origin-center flex items-center gap-4">
+                <EditorPanel />
+                <PhoneA />
+              </div>
             </div>
           </div>
         </div>

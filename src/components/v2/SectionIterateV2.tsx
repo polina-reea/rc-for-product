@@ -48,7 +48,7 @@ function PanelPaywalls() {
 
 function PanelExperiments() {
   return (
-    <div className="flex flex-col items-center justify-center h-full gap-3">
+    <div className="flex flex-col items-center justify-center h-full gap-3 max-md:scale-[0.65] max-md:origin-center">
       <div className="flex items-end gap-3">
         <div className="relative">
           <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 flex items-center justify-center h-4 px-2 rounded bg-secondary-blue-1 text-[8px] font-medium text-white shadow-sm tracking-wide z-10">A</div>
