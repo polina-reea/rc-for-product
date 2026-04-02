@@ -83,8 +83,8 @@ export function SectionIterate() {
             </div>
           </div>
 
-          {/* Animated sequence — hidden on mobile */}
-          <div className="relative w-[55%] max-lg:w-full overflow-hidden flex items-center max-md:hidden">
+          {/* Animated sequence */}
+          <div className="relative w-[55%] max-lg:w-full overflow-hidden flex items-center max-md:scale-75 max-md:origin-top max-sm:scale-[0.6]">
             <div className="pointer-events-none w-full">
               <IterateSequence />
             </div>

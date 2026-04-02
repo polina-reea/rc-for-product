@@ -283,7 +283,7 @@ export function SectionIterateV2() {
                         </a>
                       </div>
                     </div>
-                    <div className="h-[200px] rounded-2xl bg-white/40 border border-border-light/50 overflow-hidden max-sm:h-[160px]">
+                    <div className="h-[300px] rounded-2xl bg-white/40 border border-border-light/50 overflow-hidden scale-[0.8] origin-top">
                       <Panel />
                     </div>
                   </div>
