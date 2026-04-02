@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback, type ReactNode } from "react";
 
-const CARD_HEIGHT = 320; // fixed card height in px
+const CARD_HEIGHT = 280; // fixed card height in px
 
 const testimonials: {
   company: string;
