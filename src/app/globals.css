@@ -168,21 +168,23 @@ body {
   }
 }
 
-/* Scroll snap for V2 */
-.scroll-snap-container {
-  scroll-snap-type: y proximity;
-}
+/* Scroll snap for V2 — desktop only */
+@media (min-width: 768px) {
+  .scroll-snap-container {
+    scroll-snap-type: y proximity;
+  }
 
-.scroll-snap-container > main > section,
-.scroll-snap-container > main > footer {
-  scroll-snap-align: start;
-}
+  .scroll-snap-container > main > section,
+  .scroll-snap-container > main > footer {
+    scroll-snap-align: start;
+  }
 
-.snap-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  .snap-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 /* =============================================
