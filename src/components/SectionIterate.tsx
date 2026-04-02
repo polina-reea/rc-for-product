@@ -7,7 +7,7 @@ export function SectionIterate() {
     <section className="bg-gray-50 py-40 max-xl:py-30 max-lg:py-28 max-sm:py-20" id="iterate">
       <div className="container">
         <h2 className="font-object leading-dense font-medium tracking-tighter text-primary text-[3.25rem] max-xl:text-[2.5rem] max-lg:text-[2rem] max-sm:text-[1.625rem] mx-auto mb-12 max-w-[48rem] text-center text-pretty max-lg:mb-10 max-md:mb-8">
-          Ship paywall changes in minutes.<br />Predict winners in weeks.
+          Ship paywall changes in minutes<br />Predict winners in weeks
         </h2>
         <div className="flex max-lg:items-center max-md:flex-col max-md:gap-8 flex-row">
           <div className="mx-auto flex w-[45%] shrink flex-col justify-center max-md:items-center max-md:w-full max-md:px-4 max-md:text-center pr-16 max-xl:pr-10">

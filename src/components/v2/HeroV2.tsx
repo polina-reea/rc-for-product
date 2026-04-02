@@ -14,8 +14,8 @@ export function HeroV2() {
             <span className="text-sm font-medium font-object">For Product Teams</span>
           </p>
           <h1 className="font-object font-medium text-balance max-w-4xl max-lg:max-w-2xl max-md:max-w-xl text-[56px] max-xl:text-[2.75rem] max-lg:text-[2.25rem] max-sm:text-[1.75rem] leading-[1.12] tracking-[-0.04em] text-left max-xl:text-center text-primary v2-hero-glow">
-            Stop waiting on engineering.<br />
-            <span className="v2-gradient-text">Start shipping.</span>
+            Stop waiting on engineering<br />
+            <span className="v2-gradient-text">Start shipping</span>
           </h1>
           <p className="mt-6 text-xl leading-snug font-light text-gray-800 max-w-lg max-xl:text-center max-xl:mx-auto max-md:text-base">
             Design paywalls, run A/B experiments, and ship remotely. All from the dashboard. No&nbsp;app&nbsp;release, no&nbsp;engineering&nbsp;tasks, no&nbsp;waiting.

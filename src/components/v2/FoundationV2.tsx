@@ -7,7 +7,7 @@ export function FoundationV2() {
         {/* SDK + Integrations */}
         <div className="text-center mb-16 max-md:mb-10">
           <h2 className="font-object leading-dense font-medium tracking-tighter text-primary text-[3.25rem] max-xl:text-[2.5rem] max-lg:text-[2rem] max-sm:text-[1.625rem] mx-auto mb-4 max-w-[48rem] text-pretty">
-            Everything else?<br /><span className="v2-gradient-text">Already handled.</span>
+            Everything else?<br /><span className="v2-gradient-text">Already handled</span>
           </h2>
           <p className="text-xl leading-snug font-light text-gray-800 max-w-2xl mx-auto text-pretty max-md:text-base">
             Cross-platform SDKs, server-side receipt validation, and real-time entitlements. Your eng team drops it in once, you ship product from&nbsp;there.
