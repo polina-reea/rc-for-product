@@ -55,8 +55,18 @@ export default function Home() {
           </Link>
         </div>
 
+        {/* Process doc */}
+        <a
+          href="https://polinareea.notion.site/RevenueCat-x-Polina-335f151570be809ab30cca4bc09297ab"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-12 inline-flex items-center gap-2 text-[15px] font-object font-medium text-secondary-blue-1 hover:text-secondary-blue-2 transition-colors"
+        >
+          📄 Process Document (Notion)
+        </a>
+
         {/* Signature */}
-        <p className="mt-16 text-sm text-gray-750">
+        <p className="mt-6 text-sm text-gray-750">
           Made with Claude Code by Polina
         </p>
       </div>
