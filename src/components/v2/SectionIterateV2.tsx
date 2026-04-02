@@ -157,7 +157,7 @@ export function SectionIterateV2() {
           </span>
         </div>
         <h2 className="font-object leading-dense font-medium tracking-tighter text-primary text-[3.25rem] max-xl:text-[2.5rem] max-lg:text-[2rem] max-sm:text-[1.625rem] mx-auto max-w-[48rem] text-center text-pretty">
-          Ship paywall changes in minutes<br /><span className="v2-gradient-text">Predict winners in weeks</span>
+          Ship paywall changes in minutes.<br /><span className="v2-gradient-text">Predict winners in weeks</span>
         </h2>
       </div>
 

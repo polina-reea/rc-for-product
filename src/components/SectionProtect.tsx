@@ -6,7 +6,7 @@ export function SectionProtect() {
       <div className="container">
         <header className="mb-12 flex flex-col items-center gap-4 text-center max-md:mb-10">
           <h2 className="font-object leading-dense font-medium tracking-tighter text-balance text-primary max-w-4xl max-lg:max-w-2xl text-[3.25rem] max-xl:text-[2.5rem] max-lg:text-[2rem] max-sm:text-[1.625rem] text-center mx-auto">
-            Smarter support<br />Stronger retention
+            Smarter support.<br />Stronger retention
           </h2>
           <p className="text-xl font-light text-gray-800 max-w-2xl text-pretty max-md:text-base">
             Automate the work that drains your team.<br />Keep the customers you already won.
