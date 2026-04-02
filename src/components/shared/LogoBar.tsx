@@ -3,7 +3,7 @@ export function LogoBar() {
     <section className="bg-gray-50 py-16 max-md:py-10">
       <div className="container">
         <p className="mb-12 text-center font-object text-lg leading-dense font-medium tracking-dense text-gray-800 max-xl:mb-7 max-lg:text-sm">
-          From indie to enterprise. Trusted by over 115,000&nbsp;apps.
+          From startups to enterprise. Trusted by over 115,000&nbsp;apps.
         </p>
         <ul className="flex max-md:flex-wrap max-md:justify-center max-md:gap-x-7 max-md:gap-y-3.5 justify-between">
           {/* Notion */}
