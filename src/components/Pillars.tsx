@@ -32,9 +32,9 @@ export function Pillars() {
           </h2>
         </header>
 
-        <ul className="relative grid w-full grid-cols-3 gap-16 max-lg:gap-10 before:absolute before:top-4 before:left-[16.67%] before:h-px before:w-[66.67%] before:border-t-[3px] before:border-dotted before:border-primary/15 max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:gap-4 max-md:-mx-5 max-md:px-5 max-md:pb-4 max-md:before:hidden max-md:grid-cols-none">
+        <ul className="relative grid w-full grid-cols-3 gap-16 max-lg:gap-10 max-md:grid-cols-1 max-md:gap-10 before:absolute before:top-4 before:left-[16.67%] before:h-px before:w-[66.67%] before:border-t-[3px] before:border-dotted before:border-primary/15 max-md:before:hidden">
           {pillars.map((pillar) => (
-            <li key={pillar.title} className="relative flex flex-col items-center gap-7 text-center max-md:gap-4 max-md:min-w-[260px] max-md:snap-center max-md:shrink-0">
+            <li key={pillar.title} className="relative flex flex-col items-center gap-7 text-center max-md:gap-5">
               <div className="flex flex-col items-center gap-3">
                 <div className={`flex size-8 items-center justify-center rounded-full bg-white max-md:size-7 ${pillar.color}`} style={{ boxShadow: "0 2px 8px rgba(87,108,219,0.15)" }}>
                   <span className="mt-0.5 text-base leading-none font-medium max-md:text-sm">{pillar.number}</span>
