@@ -3,7 +3,7 @@ import { FloatingBlobs } from "./FloatingBlobs";
 
 export function FinalCtaV2() {
   return (
-    <section className="relative py-40 max-xl:py-30 max-lg:py-28 max-sm:py-20 bg-white snap-section">
+    <section className="relative py-24 max-xl:py-20 max-lg:py-16 max-sm:py-12 bg-white snap-section" style={{ minHeight: "auto" }}>
       <FloatingBlobs color="mixed" />
       <div className="container relative z-10 flex flex-col items-center">
         <h2 className="font-object leading-dense font-medium tracking-tighter text-balance max-w-4xl max-lg:max-w-2xl max-md:max-w-xl text-[3.25rem] max-xl:text-[2.5rem] max-lg:text-[2rem] max-sm:text-[1.625rem] mx-auto text-center text-primary">

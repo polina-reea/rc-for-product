@@ -26,13 +26,13 @@ export default function Home() {
             narrative can live in different visual treatments.
           </p>
           <p>
-            <strong className="text-primary">Version 1</strong> stays true to
+            <strong className="text-primary">Version 1</strong>{" "}stays true to
             your current design system — same components, typography, and
             patterns from revenuecat.com. It&apos;s designed to feel like it
             could ship tomorrow.
           </p>
           <p>
-            <strong className="text-primary">Version 2</strong> takes the same
+            <strong className="text-primary">Version 2</strong>{" "}takes the same
             copy and structure but explores a bolder visual direction — more
             color, more energy, more personality. Think of it as a
             conversation starter about where the brand could go.

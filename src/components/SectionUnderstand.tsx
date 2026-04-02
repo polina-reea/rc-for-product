@@ -12,8 +12,8 @@ export function SectionUnderstand() {
           Your pricing decision shouldn&apos;t depend on an analyst<br />pulling data from three different dashboards next Tuesday.
         </p>
 
-        {/* Feature list - no cards */}
-        <ul className="grid grid-cols-3 gap-12 max-xl:gap-8 max-lg:grid-cols-1 max-lg:max-w-lg max-lg:mx-auto mb-16">
+        {/* Feature list - centered like Pillars */}
+        <ul className="relative grid w-full grid-cols-3 gap-16 max-lg:gap-10 max-md:grid-cols-1 max-md:gap-10 mb-16">
           {[
             {
               icon: <LtvIcon />,
@@ -42,61 +42,57 @@ export function SectionUnderstand() {
               ],
             },
           ].map((feature) => (
-            <li key={feature.title} className="flex flex-col gap-4">
-              <div className="flex flex-col gap-6.5 max-xl:gap-5 max-lg:gap-4.5 max-sm:gap-3.5">
-                <div
-                  className={`flex size-15 shrink-0 items-center justify-center rounded-full bg-white/80 max-xl:size-14 max-lg:size-12 max-sm:size-11 ${feature.color}`}
-                  aria-hidden="true"
-                >
-                  <span className="inline-flex items-center justify-center size-7 max-xl:size-6.5 max-lg:size-6 max-sm:size-5">
-                    {feature.icon}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-3.5 max-xl:gap-2.5 max-lg:gap-2">
-                  <h3 className="font-object text-2xl leading-snug tracking-tighter text-primary max-xl:text-2xl max-lg:text-xl max-md:text-lg">
-                    {feature.title}
-                  </h3>
-                  <p className="text-base leading-normal font-light text-gray-800 max-xl:leading-snug">
-                    {feature.description}
-                  </p>
-                  {feature.explorer && (
-                    <div className="mt-3 rounded-lg border border-border-light bg-white p-2.5 max-w-[200px]">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-[9px] font-medium text-primary">Cohort Explorer</span>
-                        <span className="flex items-center gap-1 text-[8px] text-secondary-green"><span className="w-1.5 h-1.5 rounded-full bg-secondary-green" />Live</span>
-                      </div>
-                      <div className="grid grid-cols-4 gap-1">
-                        {[
-                          ["bg-secondary-blue-1/15", "bg-secondary-blue-1/10", "bg-secondary-green/12", "bg-secondary-green/8"],
-                          ["bg-secondary-blue-1/15", "bg-secondary-blue-1/10", "bg-secondary-green/12", ""],
-                          ["bg-secondary-blue-1/15", "bg-secondary-blue-1/10", "", ""],
-                        ].map((row, r) => row.map((bg, c) => (
-                          <div key={`${r}-${c}`} className={`h-4 rounded ${bg || "bg-gray-50"}`} />
-                        )))}
-                      </div>
-                    </div>
-                  )}
-                  {feature.chart && (
-                    <div className="mt-3 rounded-lg border border-border-light bg-white p-3 max-w-[240px]">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-[10px] font-medium text-primary">Paywall Conversion</span>
-                        <span className="text-[10px] font-medium text-secondary-green">28.4%</span>
-                      </div>
-                      <svg viewBox="0 0 200 44" className="w-full h-auto" fill="none">
-                        <polyline points="0,34 25,22 50,24 75,26 100,18 125,22 150,20 175,19 200,16" stroke="#11D483" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                      </svg>
-                    </div>
-                  )}
-                  {feature.logos && (
-                    <div className="flex items-center gap-4 mt-2">
-                      {feature.logos.map((logo: { name: string; src: string }) => (
-                        /* eslint-disable-next-line @next/next/no-img-element */
-                        <img key={logo.name} className="h-7 w-7 object-contain" src={logo.src} alt={logo.name} height={28} width={28} />
-                      ))}
-                    </div>
-                  )}
-                </div>
+            <li key={feature.title} className="relative flex flex-col items-center gap-4 text-center max-md:gap-3">
+              <div
+                className={`flex size-10 shrink-0 items-center justify-center rounded-full bg-white/80 ${feature.color}`}
+                aria-hidden="true"
+              >
+                <span className="inline-flex items-center justify-center size-5">
+                  {feature.icon}
+                </span>
               </div>
+              <h3 className="font-object text-2xl leading-none tracking-tighter text-primary max-lg:text-xl max-md:text-lg">
+                {feature.title}
+              </h3>
+              <p className="text-base leading-snug font-light text-gray-800 max-lg:text-sm max-md:text-base max-md:max-w-[280px] max-md:mx-auto">
+                {feature.description}
+              </p>
+              {feature.explorer && (
+                <div className="mt-1 rounded-lg border border-border-light bg-white p-2.5 w-[200px]">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[9px] font-medium text-primary">Cohort Explorer</span>
+                    <span className="flex items-center gap-1 text-[8px] text-secondary-green"><span className="w-1.5 h-1.5 rounded-full bg-secondary-green" />Live</span>
+                  </div>
+                  <div className="grid grid-cols-4 gap-1">
+                    {[
+                      ["bg-secondary-blue-1/15", "bg-secondary-blue-1/10", "bg-secondary-green/12", "bg-secondary-green/8"],
+                      ["bg-secondary-blue-1/15", "bg-secondary-blue-1/10", "bg-secondary-green/12", ""],
+                      ["bg-secondary-blue-1/15", "bg-secondary-blue-1/10", "", ""],
+                    ].map((row, r) => row.map((bg, c) => (
+                      <div key={`${r}-${c}`} className={`h-4 rounded ${bg || "bg-gray-50"}`} />
+                    )))}
+                  </div>
+                </div>
+              )}
+              {feature.chart && (
+                <div className="mt-1 rounded-lg border border-border-light bg-white p-3 w-[240px]">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[10px] font-medium text-primary">Paywall Conversion</span>
+                    <span className="text-[10px] font-medium text-secondary-green">28.4%</span>
+                  </div>
+                  <svg viewBox="0 0 200 44" className="w-full h-auto" fill="none">
+                    <polyline points="0,34 25,22 50,24 75,26 100,18 125,22 150,20 175,19 200,16" stroke="#11D483" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  </svg>
+                </div>
+              )}
+              {feature.logos && (
+                <div className="flex items-center justify-center gap-4 mt-1">
+                  {feature.logos.map((logo: { name: string; src: string }) => (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img key={logo.name} className="h-7 w-7 object-contain" src={logo.src} alt={logo.name} height={28} width={28} />
+                  ))}
+                </div>
+              )}
             </li>
           ))}
         </ul>

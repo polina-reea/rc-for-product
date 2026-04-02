@@ -13,8 +13,8 @@ export function FoundationWithIntegrations() {
           </p>
         </div>
 
-        {/* Integration logos */}
-        <div className="flex flex-wrap items-center justify-center gap-8 max-md:gap-5 mb-12">
+        {/* Integration logos — two rows on mobile, bottom row wider */}
+        <div className="flex flex-wrap items-center justify-center gap-8 max-md:hidden mb-12">
           {[
             { name: "Amplitude", logo: "/integrations/Amplitude.svg" },
             { name: "Mixpanel", logo: "/integrations/Mixpanel.svg" },
@@ -28,13 +28,37 @@ export function FoundationWithIntegrations() {
             /* eslint-disable-next-line @next/next/no-img-element */
             <img
               key={i.name}
-              className="h-10 w-10 max-md:h-8 max-md:w-8 object-contain"
+              className="h-10 w-10 object-contain"
               src={i.logo}
               alt={i.name}
               height={40}
               width={40}
             />
           ))}
+        </div>
+        <div className="hidden max-md:flex flex-col items-center gap-5 mb-12">
+          <div className="flex items-center justify-center gap-6">
+            {[
+              { name: "Amplitude", logo: "/integrations/Amplitude.svg" },
+              { name: "Mixpanel", logo: "/integrations/Mixpanel.svg" },
+              { name: "Segment", logo: "/integrations/Segment.svg" },
+            ].map((i) => (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img key={i.name} className="h-8 w-8 object-contain" src={i.logo} alt={i.name} height={32} width={32} />
+            ))}
+          </div>
+          <div className="flex items-center justify-center gap-6">
+            {[
+              { name: "Braze", logo: "/integrations/Braze.svg" },
+              { name: "AppsFlyer", logo: "/integrations/AppsFlyer.svg" },
+              { name: "Adjust", logo: "/integrations/Adjust.svg" },
+              { name: "Slack", logo: "/integrations/Slack.svg" },
+              { name: "Stripe", logo: "/integrations/Stripe.svg" },
+            ].map((i) => (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img key={i.name} className="h-8 w-8 object-contain" src={i.logo} alt={i.name} height={32} width={32} />
+            ))}
+          </div>
         </div>
 
         {/* Links row */}

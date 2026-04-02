@@ -27,7 +27,7 @@ export function SectionProtectV2() {
                 src="https://www.revenuecat.com/static/3ba59cea1efa5cf563950c108fefc3fb/12bcc/card1.png"
               />
             </div>
-            <div className="p-7 bg-gradient-to-t from-gray-50 from-70% to-transparent -mt-12 relative z-10">
+            <div className="p-7 bg-gradient-to-t from-gray-50 from-70% to-transparent -mt-12 max-md:mt-0 max-md:bg-none relative z-10">
               <p className="text-lg leading-[133.5%] font-light text-gray-800">
                 <strong className="font-medium text-primary">Refund requests on&nbsp;autopilot.</strong>{" "}
                 RevenueCat handles Apple refund requests automatically, using real usage&nbsp;data. Your support team has better things to&nbsp;do.
@@ -39,7 +39,7 @@ export function SectionProtectV2() {
           </div>
 
           <div className="relative flex flex-col overflow-hidden rounded-2xl border border-border-light bg-gray-50">
-            <div className="flex-1 overflow-hidden">
+            <div className="flex-1 overflow-hidden min-h-[200px] max-md:min-h-[180px]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="pointer-events-none w-full object-cover object-top"
@@ -49,7 +49,7 @@ export function SectionProtectV2() {
                 src="https://www.revenuecat.com/website/_next/static/media/management.2591cace.svg"
               />
             </div>
-            <div className="p-7 bg-gradient-to-t from-gray-50 from-70% to-transparent -mt-12 relative z-10">
+            <div className="p-7 bg-gradient-to-t from-gray-50 from-70% to-transparent -mt-12 max-md:mt-0 max-md:bg-none relative z-10">
               <p className="text-lg leading-[133.5%] font-light text-gray-800">
                 <strong className="font-medium text-primary">Let users help&nbsp;themselves.</strong><br />Customer Center gives subscribers self-serve cancel flows, win-back offers, and plan&nbsp;changes. Less churn, fewer&nbsp;tickets.
               </p>

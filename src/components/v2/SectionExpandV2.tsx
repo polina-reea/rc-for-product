@@ -193,8 +193,10 @@ export function SectionExpandV2() {
                         </a>
                       </div>
                     </div>
-                    <div className="h-[300px] rounded-2xl bg-white/40 border border-border-light/50 overflow-hidden scale-[0.8] origin-top">
-                      <Panel />
+                    <div className="h-[300px] rounded-2xl bg-white/40 border border-border-light/50 overflow-hidden flex items-center justify-center">
+                      <div className="scale-[0.55] origin-center">
+                        <Panel />
+                      </div>
                     </div>
                   </div>
                 );

@@ -5,6 +5,7 @@ import Image from "next/image";
 
 export function Navbar() {
   const [bgWhite, setBgWhite] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const checkBg = () => {
@@ -107,11 +108,48 @@ export function Navbar() {
           className="relative -mr-3 size-10 flex-col items-center justify-center gap-1.25 z-50 hidden max-xl:flex"
           type="button"
           aria-label="Menu"
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          <span className="block h-0.5 w-6 rounded-full bg-primary" />
-          <span className="block h-0.5 w-6 rounded-full bg-primary" />
-          <span className="block h-0.5 w-6 rounded-full bg-primary" />
+          <span className={`block h-0.5 w-6 rounded-full bg-primary transition-transform duration-300 ${menuOpen ? "translate-y-[3.5px] rotate-45" : ""}`} />
+          <span className={`block h-0.5 w-6 rounded-full bg-primary transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block h-0.5 w-6 rounded-full bg-primary transition-transform duration-300 ${menuOpen ? "-translate-y-[3.5px] -rotate-45" : ""}`} />
         </button>
+      </div>
+
+      {/* Mobile menu */}
+      <div
+        className={`hidden max-xl:block overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-[500px]" : "max-h-0"}`}
+      >
+        <nav className={`container pb-6 pt-2 border-t border-border-light ${bgWhite ? "bg-white" : "bg-gray-50"}`}>
+          <ul className="flex flex-col gap-1 mb-6">
+            {["Features", "Solutions", "Developers", "Resources", "Integrations", "Blog", "Pricing"].map((item) => (
+              <li key={item}>
+                <a
+                  className="font-object block rounded-lg px-3 py-2.5 text-sm text-primary transition-colors hover:bg-gray-50"
+                  href={`https://www.revenuecat.com/${item.toLowerCase()}`}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-col gap-3 px-3">
+            <a
+              className="font-object text-center text-sm font-medium text-secondary-blue-1 hover:text-secondary-blue-2 transition-colors py-2.5"
+              href="https://app.revenuecat.com/login"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Log In
+            </a>
+            <a
+              className="transition-colors duration-300 whitespace-nowrap font-object font-medium relative inline-flex w-full items-center justify-center gap-1 bg-secondary-blue-1 hover:bg-secondary-blue-2 text-white h-[2.625rem] rounded-full text-sm px-7 tracking-dense"
+              href="https://app.revenuecat.com/signup"
+            >
+              Sign Up
+            </a>
+          </div>
+        </nav>
       </div>
     </header>
   );
