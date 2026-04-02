@@ -13,7 +13,7 @@ export function Hero() {
           Stop waiting on engineering.<br />Start shipping.
         </h1>
         <p className="mt-6 text-xl leading-snug font-light text-gray-800 max-w-lg max-xl:text-center max-xl:mx-auto max-md:text-base">
-          Design paywalls, run A/B experiments, and ship remotely. All from the dashboard. No&nbsp;app&nbsp;release, no&nbsp;eng&nbsp;tickets, no&nbsp;waiting.
+          Design paywalls, run A/B experiments, and ship remotely. All from the dashboard. No&nbsp;app&nbsp;release, no&nbsp;engineering&nbsp;tasks, no&nbsp;waiting.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-8 max-xl:gap-5 max-lg:justify-center">
           <a

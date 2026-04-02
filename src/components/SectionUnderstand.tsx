@@ -20,18 +20,26 @@ export function SectionUnderstand() {
               title: "Predict, don\u2019t react",
               description: "LTV Prediction forecasts revenue by cohort. Cohort Explorer lets you slice by acquisition source, country, or custom segment.",
               color: "shadow-feature-blue text-secondary-blue-1",
+              explorer: true,
             },
             {
               icon: <ChartIcon />,
               title: "Paywall performance",
               description: "Four real-time charts: encounter rates, conversion, LTV by paywall, and abandonment. See what earns, not just what gets clicks.",
               color: "shadow-feature-red text-secondary-red",
+              chart: true,
             },
             {
               icon: <DataIcon />,
               title: "Your data, everywhere",
               description: "Stream events to Amplitude, Mixpanel, Segment, or your warehouse via Charts API and webhooks. No analyst bottleneck.",
               color: "shadow-feature-green text-secondary-green",
+              logos: [
+                { name: "Amplitude", src: "/integrations/Amplitude.svg" },
+                { name: "Mixpanel", src: "/integrations/Mixpanel.svg" },
+                { name: "Segment", src: "/integrations/Segment.svg" },
+                { name: "Slack", src: "/integrations/Slack.svg" },
+              ],
             },
           ].map((feature) => (
             <li key={feature.title} className="flex flex-col gap-4">
@@ -51,6 +59,42 @@ export function SectionUnderstand() {
                   <p className="text-base leading-normal font-light text-gray-800 max-xl:leading-snug">
                     {feature.description}
                   </p>
+                  {feature.explorer && (
+                    <div className="mt-3 rounded-lg border border-border-light bg-white p-2.5 max-w-[200px]">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-[9px] font-medium text-primary">Cohort Explorer</span>
+                        <span className="flex items-center gap-1 text-[8px] text-secondary-green"><span className="w-1.5 h-1.5 rounded-full bg-secondary-green" />Live</span>
+                      </div>
+                      <div className="grid grid-cols-4 gap-1">
+                        {[
+                          ["bg-secondary-blue-1/15", "bg-secondary-blue-1/10", "bg-secondary-green/12", "bg-secondary-green/8"],
+                          ["bg-secondary-blue-1/15", "bg-secondary-blue-1/10", "bg-secondary-green/12", ""],
+                          ["bg-secondary-blue-1/15", "bg-secondary-blue-1/10", "", ""],
+                        ].map((row, r) => row.map((bg, c) => (
+                          <div key={`${r}-${c}`} className={`h-4 rounded ${bg || "bg-gray-50"}`} />
+                        )))}
+                      </div>
+                    </div>
+                  )}
+                  {feature.chart && (
+                    <div className="mt-3 rounded-lg border border-border-light bg-white p-3 max-w-[240px]">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-[10px] font-medium text-primary">Paywall Conversion</span>
+                        <span className="text-[10px] font-medium text-secondary-green">28.4%</span>
+                      </div>
+                      <svg viewBox="0 0 200 44" className="w-full h-auto" fill="none">
+                        <polyline points="0,34 25,22 50,24 75,26 100,18 125,22 150,20 175,19 200,16" stroke="#11D483" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                      </svg>
+                    </div>
+                  )}
+                  {feature.logos && (
+                    <div className="flex items-center gap-4 mt-2">
+                      {feature.logos.map((logo: { name: string; src: string }) => (
+                        /* eslint-disable-next-line @next/next/no-img-element */
+                        <img key={logo.name} className="h-7 w-7 object-contain" src={logo.src} alt={logo.name} height={28} width={28} />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </li>

@@ -7,8 +7,13 @@ export function SectionUnderstandV2() {
     <section className="relative bg-white py-40 max-xl:py-30 max-lg:py-28 max-sm:py-20 snap-section" id="understand">
       <FloatingBlobs color="red" />
       <div className="container relative z-10">
+        <div className="flex justify-center mb-5">
+          <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium font-object border border-secondary-blue-1/20 bg-secondary-blue-1/5 text-secondary-blue-1">
+            Understand
+          </span>
+        </div>
         <h2 className="font-object leading-dense font-medium tracking-tighter text-primary text-[3.25rem] max-xl:text-[2.5rem] max-lg:text-[2rem] max-sm:text-[1.625rem] mx-auto mb-4 max-w-[48rem] text-center text-pretty max-lg:mb-3">
-          <span className="v2-gradient-text">Understand what drives growth</span><br />&amp; do more of it
+          <span className="v2-gradient-text">See what drives growth</span><br />&amp; do more of it
         </h2>
         <p className="text-xl leading-snug font-light text-gray-800 max-w-2xl mx-auto text-center mb-16 text-pretty max-md:mb-10 max-md:text-base">
           Your pricing decision shouldn&apos;t depend on an analyst<br />pulling data from three different dashboards next Tuesday.
@@ -22,18 +27,26 @@ export function SectionUnderstandV2() {
               title: "Predict, don\u2019t react",
               description: "LTV Prediction forecasts revenue by cohort. Cohort Explorer lets you slice by acquisition source, country, or custom segment.",
               color: "shadow-feature-blue text-secondary-blue-1",
+              explorer: true,
             },
             {
               icon: <ChartIcon />,
               title: "Paywall performance",
               description: "Four real-time charts: encounter rates, conversion, LTV by paywall, and abandonment. See what earns, not just what gets clicks.",
               color: "shadow-feature-red text-secondary-red",
+              chart: true,
             },
             {
               icon: <DataIcon />,
               title: "Your data, everywhere",
               description: "Stream events to Amplitude, Mixpanel, Segment, or your warehouse via Charts API and webhooks. No analyst bottleneck.",
               color: "shadow-feature-green text-secondary-green",
+              logos: [
+                { name: "Amplitude", src: "/integrations/Amplitude.svg" },
+                { name: "Mixpanel", src: "/integrations/Mixpanel.svg" },
+                { name: "Segment", src: "/integrations/Segment.svg" },
+                { name: "Slack", src: "/integrations/Slack.svg" },
+              ],
             },
           ].map((feature) => (
             <li key={feature.title} className="flex flex-col gap-4">
@@ -53,6 +66,42 @@ export function SectionUnderstandV2() {
                   <p className="text-base leading-normal font-light text-gray-800 max-xl:leading-snug">
                     {feature.description}
                   </p>
+                  {feature.explorer && (
+                    <div className="mt-3 rounded-lg border border-border-light bg-white p-2.5 max-w-[200px]">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-[9px] font-medium text-primary">Cohort Explorer</span>
+                        <span className="flex items-center gap-1 text-[8px] text-secondary-green"><span className="w-1.5 h-1.5 rounded-full bg-secondary-green" />Live</span>
+                      </div>
+                      <div className="grid grid-cols-4 gap-1">
+                        {[
+                          ["bg-secondary-blue-1/15", "bg-secondary-blue-1/10", "bg-secondary-green/12", "bg-secondary-green/8"],
+                          ["bg-secondary-blue-1/15", "bg-secondary-blue-1/10", "bg-secondary-green/12", ""],
+                          ["bg-secondary-blue-1/15", "bg-secondary-blue-1/10", "", ""],
+                        ].map((row, r) => row.map((bg, c) => (
+                          <div key={`${r}-${c}`} className={`h-4 rounded ${bg || "bg-gray-50"}`} />
+                        )))}
+                      </div>
+                    </div>
+                  )}
+                  {feature.chart && (
+                    <div className="mt-3 rounded-lg border border-border-light bg-white p-3 max-w-[240px]">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-[10px] font-medium text-primary">Paywall Conversion</span>
+                        <span className="text-[10px] font-medium text-secondary-green">28.4%</span>
+                      </div>
+                      <svg viewBox="0 0 200 44" className="w-full h-auto" fill="none">
+                        <polyline points="0,34 25,22 50,24 75,26 100,18 125,22 150,20 175,19 200,16" stroke="#11D483" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                      </svg>
+                    </div>
+                  )}
+                  {feature.logos && (
+                    <div className="flex items-center gap-4 mt-2">
+                      {feature.logos.map((logo: { name: string; src: string }) => (
+                        /* eslint-disable-next-line @next/next/no-img-element */
+                        <img key={logo.name} className="h-7 w-7 object-contain" src={logo.src} alt={logo.name} height={28} width={28} />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </li>

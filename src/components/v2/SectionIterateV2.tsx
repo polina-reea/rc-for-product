@@ -151,6 +151,11 @@ export function SectionIterateV2() {
     >
       {/* Heading — scrolls away naturally */}
       <div className="container relative z-10 pt-40 pb-12 max-xl:pt-30 max-lg:pt-28 max-sm:pt-20">
+        <div className="flex justify-center mb-5">
+          <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium font-object border border-secondary-blue-1/20 bg-secondary-blue-1/5 text-secondary-blue-1">
+            Iterate
+          </span>
+        </div>
         <h2 className="font-object leading-dense font-medium tracking-tighter text-primary text-[3.25rem] max-xl:text-[2.5rem] max-lg:text-[2rem] max-sm:text-[1.625rem] mx-auto max-w-[48rem] text-center text-pretty">
           Ship paywall changes in minutes.<br /><span className="v2-gradient-text">Predict winners in weeks.</span>
         </h2>
@@ -181,8 +186,8 @@ export function SectionIterateV2() {
                       <h3 className="font-object text-lg leading-tight tracking-tighter text-primary font-medium flex items-center gap-2">
                         {f.title}
                         {f.aiTag && (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-secondary-blue-1/10 text-secondary-blue-1 shrink-0">
-                            <svg className="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium text-white shrink-0" style={{ background: "linear-gradient(89deg, #576DDB -14.77%, #A7A1E2 77.04%, #E38DC2 123.95%)" }}>
+                            <svg className="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
                               <path d="M20 3v4" /><path d="M22 5h-4" />
                             </svg>

@@ -77,7 +77,7 @@ const testimonials: {
   {
     company: "VSCO",
     category: "Photo Filters",
-    logo: "https://cdn.sanity.io/images/c3qnx9b0/production/75c4a4728e6b9721bb15ab36a6d601dfbfd9c9ec-80x80.svg?w=128&q=75&auto=format",
+    logo: "https://cdn.sanity.io/images/c3qnx9b0/production/c067c6e0abe15a50015961e743f0fba52e9cd260-80x80.svg?w=128&q=75&auto=format",
     quote: (
       <>
         The RevenueCat and Braze integration allowed us to implement{" "}
@@ -88,7 +88,7 @@ const testimonials: {
     person: "Shaheen Essabhoy",
     title: "Business Intelligence",
     avatar:
-      "https://cdn.sanity.io/images/c3qnx9b0/production/40bcd4291888aba430c034c8f42f6250748160e5-144x145.jpg?w=96&q=75&auto=format",
+      "https://cdn.sanity.io/images/c3qnx9b0/production/aa695acb486b9b84caaf0dae1f49933a62318122-82x82.jpg?w=96&q=75&auto=format",
     link: "https://www.revenuecat.com/customers/vsco/",
   },
   {

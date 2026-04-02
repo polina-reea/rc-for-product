@@ -1,5 +1,6 @@
 import { ArrowIcon } from "../ArrowIcon";
 import { TestimonialCarousel } from "../TestimonialCarousel";
+import { LogoBar } from "../LogoBar";
 import { FloatingBlobs } from "./FloatingBlobs";
 
 export function HeroV2() {
@@ -17,7 +18,7 @@ export function HeroV2() {
             <span className="v2-gradient-text">Start shipping.</span>
           </h1>
           <p className="mt-6 text-xl leading-snug font-light text-gray-800 max-w-lg max-xl:text-center max-xl:mx-auto max-md:text-base">
-            Design paywalls, run A/B experiments, and ship remotely. All from the dashboard. No&nbsp;app&nbsp;release, no&nbsp;eng&nbsp;tickets, no&nbsp;waiting.
+            Design paywalls, run A/B experiments, and ship remotely. All from the dashboard. No&nbsp;app&nbsp;release, no&nbsp;engineering&nbsp;tasks, no&nbsp;waiting.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-8 max-xl:gap-5 max-lg:justify-center">
             <a
@@ -42,6 +43,9 @@ export function HeroV2() {
           <TestimonialCarousel />
         </div>
       </div>
+
+      {/* Logo bar integrated into hero */}
+      <LogoBar />
     </section>
   );
 }
