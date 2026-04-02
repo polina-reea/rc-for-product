@@ -71,8 +71,8 @@ export function SectionExpand() {
             </div>
           </div>
 
-          {/* Animated: Funnels → Web Billing */}
-          <div className="pointer-events-none relative w-[55%] max-lg:w-full flex items-center">
+          {/* Animated: Funnels → Web Billing — hidden on mobile */}
+          <div className="pointer-events-none relative w-[55%] max-lg:w-full flex items-center max-md:hidden">
             <ExpandSequence />
           </div>
         </div>

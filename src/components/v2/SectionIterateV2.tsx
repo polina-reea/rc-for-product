@@ -283,19 +283,24 @@ export function SectionIterateV2() {
                         </a>
                       </div>
                     </div>
-                    <div className="h-[280px] rounded-2xl bg-white/40 border border-border-light/50">
+                    <div className="h-[200px] rounded-2xl bg-white/40 border border-border-light/50 overflow-hidden max-sm:h-[160px]">
                       <Panel />
                     </div>
                   </div>
                 );
               })}
-              <div className="flex items-baseline gap-3 mt-2">
-                <span className="font-object text-[28px] font-medium tracking-tight leading-none v2-gradient-text">+20%</span>
-                <p className="text-sm text-gray-750">
-                  A single paywall experiment lifted revenue&nbsp;20%.
-                  <a href="https://www.revenuecat.com/state-of-subscription-apps-2026/" target="_blank" rel="noopener noreferrer" className="ml-1 underline decoration-border-light underline-offset-4 hover:decoration-secondary-blue-1 hover:text-secondary-blue-1 transition-colors">
-                    SOSA 2026
-                  </a>
+              {/* Mobile testimonial */}
+              <div className="rounded-xl bg-white p-5 border border-border-light" style={{ boxShadow: "0 4px 12px rgba(144,138,208,0.08)" }}>
+                <div className="flex items-center gap-3 mb-3">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img className="size-9 rounded-xl object-contain" src="https://cdn.sanity.io/images/c3qnx9b0/production/39f531e18947f35909fa6c1dd5858d562f2b1db9-80x80.svg?w=64&q=75&auto=format" alt="RocketSim" width={36} height={36} />
+                  <div>
+                    <p className="text-sm font-medium text-primary leading-tight">RocketSim</p>
+                    <p className="text-[12px] text-gray-750 leading-tight">Antoine van der Lee, Founder</p>
+                  </div>
+                </div>
+                <p className="text-[15px] leading-snug text-gray-800">
+                  &ldquo;Using RevenueCat Experiments, I increased <strong className="font-medium v2-gradient-text">RocketSim&rsquo;s LTV by&nbsp;47%</strong>.&rdquo;
                 </p>
               </div>
             </div>
