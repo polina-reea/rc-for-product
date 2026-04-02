@@ -42,7 +42,7 @@ export function Pillars() {
                 <h3 className="font-object text-2xl leading-none tracking-tighter text-primary max-lg:text-xl max-md:text-lg">
                   {pillar.title}
                 </h3>
-                <p className="text-base leading-snug font-light text-gray-800 max-lg:text-sm max-md:text-base">
+                <p className="text-base leading-snug font-light text-gray-800 max-lg:text-sm max-md:text-base max-md:max-w-[280px] max-md:mx-auto">
                   {pillar.description}
                 </p>
               </div>
