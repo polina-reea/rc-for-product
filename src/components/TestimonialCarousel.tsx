@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback, type ReactNode } from "react";
 
-const CARD_HEIGHT = 380; // fixed card height in px
+const CARD_HEIGHT = 320; // fixed card height in px
 
 const testimonials: {
   company: string;
@@ -121,7 +121,7 @@ const PEEK = 100; // how much of prev/next card is visible
 function Card({ t, isActive }: { t: (typeof testimonials)[number]; isActive: boolean }) {
   return (
     <article
-      className="w-full max-w-[488px] flex flex-col rounded-2xl border border-border bg-white p-6"
+      className="w-full max-w-[420px] flex flex-col rounded-2xl border border-border bg-white p-6"
       style={{ boxShadow: "0 4px 12px rgba(144, 138, 208, 0.08)", height: CARD_HEIGHT }}
     >
       <header className="grid grid-cols-[64px_1fr] gap-x-4 gap-y-0.5">
@@ -213,7 +213,7 @@ export function TestimonialCarousel() {
   };
 
   return (
-    <div className="relative w-full max-w-[488px] mx-auto">
+    <div className="relative w-full max-w-[420px] mx-auto">
       {/* Viewport */}
       <div
         className="relative overflow-hidden"
