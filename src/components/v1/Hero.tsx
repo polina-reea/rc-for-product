@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
-import { TestimonialCarousel } from "./TestimonialCarousel";
+import { TestimonialCarousel } from "../shared/TestimonialCarousel";
 
 export function Hero() {
   return (

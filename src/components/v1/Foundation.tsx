@@ -1,4 +1,4 @@
-import { ArrowIcon } from "./ArrowIcon";
+import { ArrowIcon } from "../icons/ArrowIcon";
 
 export function Foundation() {
   return (

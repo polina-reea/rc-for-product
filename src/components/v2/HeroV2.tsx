@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
-import { TestimonialCarousel } from "../TestimonialCarousel";
-import { LogoBar } from "../LogoBar";
+import { TestimonialCarousel } from "../shared/TestimonialCarousel";
+import { LogoBar } from "../shared/LogoBar";
 import { FloatingBlobs } from "./FloatingBlobs";
 
 export function HeroV2() {

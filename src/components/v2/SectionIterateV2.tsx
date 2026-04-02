@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
 import { FloatingBlobs } from "./FloatingBlobs";
-import { PaywallIcon, ExperimentIcon, TargetIcon } from "../Icons";
-import { PhoneA, PhoneB, EditorPanel } from "../IterateSequence";
+import { PaywallIcon, ExperimentIcon, TargetIcon } from "../icons/Icons";
+import { PhoneA, PhoneB, EditorPanel } from "../v1/IterateSequence";
 import { iterateFeatures } from "@/data/features";
 import { getTestimonial } from "@/data/testimonials";
 

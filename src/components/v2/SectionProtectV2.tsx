@@ -1,4 +1,4 @@
-import { ArrowIcon } from "../ArrowIcon";
+import { ArrowIcon } from "../icons/ArrowIcon";
 import { FloatingBlobs } from "./FloatingBlobs";
 
 export function SectionProtectV2() {

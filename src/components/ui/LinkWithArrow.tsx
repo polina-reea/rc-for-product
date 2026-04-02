@@ -1,4 +1,4 @@
-import { ArrowIcon } from "../ArrowIcon";
+import { ArrowIcon } from "../icons/ArrowIcon";
 
 interface LinkWithArrowProps {
   href: string;
@@ -15,7 +15,7 @@ export function LinkWithArrow({
 }: LinkWithArrowProps) {
   return (
     <a
-      className={`font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium text-${size} ${className}`}
+      className={`font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium ${size === "base" ? "text-base" : "text-[15px]"} ${className}`}
       href={href}
       target="_blank"
       rel="noopener noreferrer"

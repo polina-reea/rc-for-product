@@ -1,4 +1,4 @@
-import { BoltIcon, ChartIcon, GlobeIcon } from "../Icons";
+import { BoltIcon, ChartIcon, GlobeIcon } from "../icons/Icons";
 import { FloatingBlobs } from "./FloatingBlobs";
 
 const pillars = [

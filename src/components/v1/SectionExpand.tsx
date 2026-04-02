@@ -1,5 +1,5 @@
 import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
-import { GlobeIcon, BillingIcon } from "./Icons";
+import { GlobeIcon, BillingIcon } from "../icons/Icons";
 import { ExpandSequence, StepFunnels, StepBilling } from "./ExpandSequence";
 import { expandFeaturesV1 } from "@/data/features";
 import { getTestimonial } from "@/data/testimonials";

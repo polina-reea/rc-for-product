@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
-import { GlobeIcon, BillingIcon } from "../Icons";
-import { StepFunnels, StepBilling } from "../ExpandSequence";
+import { GlobeIcon, BillingIcon } from "../icons/Icons";
+import { StepFunnels, StepBilling } from "../v1/ExpandSequence";
 import { expandFeatures } from "@/data/features";
 import { getTestimonial } from "@/data/testimonials";
 

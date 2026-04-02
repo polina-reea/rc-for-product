@@ -1,15 +1,15 @@
-import { Hero } from "@/components/Hero";
-import { LogoBar } from "@/components/LogoBar";
-import { Pillars } from "@/components/Pillars";
-import { SectionIterate } from "@/components/SectionIterate";
-import { SectionUnderstand } from "@/components/SectionUnderstand";
-import { SectionExpand } from "@/components/SectionExpand";
-import { SectionProtect } from "@/components/SectionProtect";
-import { FoundationWithIntegrations } from "@/components/FoundationWithIntegrations";
-import { FinalCta } from "@/components/FinalCta";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { VersionSwitcher } from "@/components/VersionSwitcher";
+import { Hero } from "@/components/v1/Hero";
+import { LogoBar } from "@/components/shared/LogoBar";
+import { Pillars } from "@/components/shared/Pillars";
+import { SectionIterate } from "@/components/v1/SectionIterate";
+import { SectionUnderstand } from "@/components/v1/SectionUnderstand";
+import { SectionExpand } from "@/components/v1/SectionExpand";
+import { SectionProtect } from "@/components/v1/SectionProtect";
+import { FoundationWithIntegrations } from "@/components/v1/FoundationWithIntegrations";
+import { FinalCta } from "@/components/v1/FinalCta";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { VersionSwitcher } from "@/components/layout/VersionSwitcher";
 
 export default function V1() {
   return (

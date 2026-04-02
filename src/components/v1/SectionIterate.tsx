@@ -1,5 +1,5 @@
 import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
-import { PaywallIcon, ExperimentIcon, TargetIcon } from "./Icons";
+import { PaywallIcon, ExperimentIcon, TargetIcon } from "../icons/Icons";
 import { IterateSequence, PhoneA, PhoneB, EditorPanel } from "./IterateSequence";
 import { iterateFeaturesV1 } from "@/data/features";
 import { getTestimonial } from "@/data/testimonials";

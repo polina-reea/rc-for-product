@@ -1,5 +1,5 @@
 import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
-import { LtvIcon, ChartIcon, DataIcon } from "./Icons";
+import { LtvIcon, ChartIcon, DataIcon } from "../icons/Icons";
 import { understandFeatures } from "@/data/features";
 import { analyticsIntegrations } from "@/data/integrations";
 import { getTestimonial } from "@/data/testimonials";
@@ -97,7 +97,7 @@ export function SectionUnderstand() {
         </div>
 
         <div className="text-center">
-          <LinkWithArrow href="https://www.revenuecat.com/feature/charts/" size="base">Explore Charts</LinkWithArrow>
+          <LinkWithArrow href="https://www.revenuecat.com/feature/charts/">Explore Charts</LinkWithArrow>
         </div>
       </div>
     </section>

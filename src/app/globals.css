@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* =============================================
+   FONTS
+   ============================================= */
+
 @font-face {
   font-family: "PP Object Sans";
   src: url("/fonts/PP Object Sans-normal-400-100.ttf") format("truetype");
@@ -48,6 +52,10 @@
   font-display: swap;
 }
 
+/* =============================================
+   THEME TOKENS
+   ============================================= */
+
 @theme inline {
   --color-primary: #1F1F47;
   --color-secondary-blue-1: #576CDB;
@@ -61,6 +69,10 @@
   --color-border-light: #EAEDF6;
 }
 
+/* =============================================
+   BASE STYLES
+   ============================================= */
+
 body {
   background: #ffffff;
   color: var(--color-gray-800);
@@ -70,7 +82,10 @@ body {
   -moz-osx-font-smoothing: auto;
 }
 
-/* Font utilities matching RC's system */
+/* =============================================
+   TYPOGRAPHY UTILITIES
+   ============================================= */
+
 .font-object {
   font-family: "PP Object Sans", "HelveticaNeueCyr", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -83,7 +98,10 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Feature icon shadows matching RC */
+/* =============================================
+   SHADOWS
+   ============================================= */
+
 .shadow-feature-blue {
   box-shadow: none;
 }
@@ -96,34 +114,22 @@ body {
   box-shadow: none;
 }
 
-/* Card shadow matching RC */
 .shadow-card {
   box-shadow: 0 20px 30px 0px rgba(144, 138, 208, 0.1), 5px 5px 20px 0 rgba(71, 92, 133, 0.05);
 }
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
 
 @keyframes growBar {
   from { width: 0; }
 }
 
-/* Scroll snap for V2 */
-.scroll-snap-container {
-  scroll-snap-type: y proximity;
-}
+/* =============================================
+   LAYOUT
+   ============================================= */
 
-.scroll-snap-container > main > section,
-.scroll-snap-container > main > footer {
-  scroll-snap-align: start;
-}
-
-/* Full-screen sections */
-.snap-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Container matching RC */
 .container {
   max-width: 80rem;
   margin-left: auto;
@@ -132,7 +138,6 @@ body {
   padding-right: 2rem;
 }
 
-/* Section spacing */
 .section-spacing {
   padding-top: 10rem;
   padding-bottom: 10rem;
@@ -163,14 +168,35 @@ body {
   }
 }
 
-/* ===== V2 Theme — Accents & Energy ===== */
+/* Scroll snap for V2 */
+.scroll-snap-container {
+  scroll-snap-type: y proximity;
+}
+
+.scroll-snap-container > main > section,
+.scroll-snap-container > main > footer {
+  scroll-snap-align: start;
+}
+
+.snap-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* =============================================
+   V2 THEME — Accents & Energy
+   All V2 styles are scoped under .v2-theme
+   ============================================= */
+
 .v2-theme {
   --v2-gradient: linear-gradient(89deg, #576DDB -14.77%, #A7A1E2 77.04%, #E38DC2 123.95%);
   --v2-gradient-blue: linear-gradient(135deg, #576CDB, #4A3DDC);
   --v2-gradient-warm: linear-gradient(135deg, #F2545B, #FF7B54);
 }
 
-/* Gradient text — bold and visible */
+/* --- Gradient text --- */
 .v2-theme .v2-gradient-text {
   background: var(--v2-gradient);
   -webkit-background-clip: text;
@@ -178,7 +204,7 @@ body {
   background-clip: text;
 }
 
-/* Accent left border on feature items */
+/* --- Accent borders --- */
 .v2-theme .v2-accent-border-blue {
   border-left: 3px solid #576CDB;
   padding-left: 1rem;
@@ -192,7 +218,7 @@ body {
   padding-left: 1rem;
 }
 
-/* Card hover lift — more dramatic */
+/* --- Card hover --- */
 .v2-theme .v2-card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -201,7 +227,7 @@ body {
   box-shadow: 0 28px 50px rgba(87, 108, 219, 0.2), 0 8px 20px rgba(144, 138, 208, 0.12);
 }
 
-/* Section gradient backgrounds — more visible */
+/* --- Section gradients --- */
 .v2-theme .v2-section-gradient-blue {
   background: linear-gradient(180deg, #F3F4FF 0%, #E8EAFF 50%, #F3F4FF 100%);
 }
@@ -212,7 +238,7 @@ body {
   background: linear-gradient(180deg, #F9F9FB 0%, #E5FFF2 50%, #F9F9FB 100%);
 }
 
-/* Badge */
+/* --- Badge --- */
 .v2-theme .v2-badge-new {
   display: inline-flex;
   align-items: center;
@@ -228,7 +254,7 @@ body {
   flex-shrink: 0;
 }
 
-/* Animated underline on links */
+/* --- Animated underline --- */
 .v2-theme .v2-link-underline {
   position: relative;
 }
@@ -247,7 +273,7 @@ body {
   width: 100%;
 }
 
-/* Gradient button */
+/* --- Gradient button --- */
 .v2-theme .v2-btn-gradient {
   background: var(--v2-gradient-blue);
   transition: all 0.3s ease;
@@ -257,7 +283,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Glow effect behind hero heading */
+/* --- Hero glow --- */
 .v2-theme .v2-hero-glow {
   position: relative;
 }
@@ -274,19 +300,18 @@ body {
   z-index: -1;
 }
 
-/* Colored icon circles — no shadow in V2 */
+/* --- V2 shadow overrides --- */
 .v2-theme .shadow-feature-blue,
 .v2-theme .shadow-feature-red,
 .v2-theme .shadow-feature-green {
   box-shadow: none;
 }
 
-/* Card shadow — more prominent */
 .v2-theme .shadow-card {
   box-shadow: 0 24px 40px rgba(87, 108, 219, 0.12), 5px 5px 24px rgba(71, 92, 133, 0.08);
 }
 
-/* Shimmer effect on buttons */
+/* --- Shimmer button --- */
 .v2-theme .v2-btn-shimmer {
   position: relative;
   overflow: hidden;
@@ -306,6 +331,7 @@ body {
   100% { left: 100%; }
 }
 
+/* --- Float animation --- */
 @keyframes v2float {
   0%, 100% { transform: translate(0, 0) scale(1); }
   33% { transform: translate(30px, -20px) scale(1.05); }

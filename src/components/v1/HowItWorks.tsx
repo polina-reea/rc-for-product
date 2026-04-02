@@ -1,4 +1,4 @@
-import { DesignIcon, ExperimentIcon, PublishIcon, AnalyzeIcon, WinnerIcon } from "./Icons";
+import { DesignIcon, ExperimentIcon, PublishIcon, AnalyzeIcon, WinnerIcon } from "../icons/Icons";
 
 export function HowItWorks() {
   const steps = [
