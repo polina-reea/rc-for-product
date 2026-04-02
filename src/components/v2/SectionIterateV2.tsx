@@ -1,41 +1,25 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowIcon } from "../ArrowIcon";
+import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
 import { FloatingBlobs } from "./FloatingBlobs";
 import { PaywallIcon, ExperimentIcon, TargetIcon } from "../Icons";
 import { PhoneA, PhoneB, EditorPanel } from "../IterateSequence";
+import { iterateFeatures } from "@/data/features";
+import { getTestimonial } from "@/data/testimonials";
 
-const features = [
-  {
-    id: "paywalls",
-    icon: <PaywallIcon />,
-    iconColor: "shadow-feature-blue text-secondary-blue-1",
-    title: "Design paywalls, no code",
-    aiTag: true,
-    description: "Start with AI-generated designs or build from scratch. No-code templates, Figma import, custom HTML. Hit\u00A0publish and it\u2019s live on iOS, Android, and web. No App Store\u00A0review.",
-    link: "https://www.revenuecat.com/feature/paywalls",
-    linkText: "Explore Paywalls",
-  },
-  {
-    id: "experiments",
-    icon: <ExperimentIcon />,
-    iconColor: "shadow-feature-red text-secondary-red",
-    title: "Experiment and predict winners",
-    description: "Up to four variants. RevenueCat predicts the 12-month LTV winner with revenue-based significance while the test is still running. Ship the winner in one\u00A0click.",
-    link: "https://www.revenuecat.com/feature/experiments/",
-    linkText: "Explore Experiments",
-  },
-  {
-    id: "targeting",
-    icon: <TargetIcon />,
-    iconColor: "shadow-feature-green text-secondary-green",
-    title: "Target the right users",
-    description: "Segment by cohort, country, or custom attribute. Show different offerings to different users, no code\u00A0needed.",
-    link: "https://www.revenuecat.com/feature/targeting",
-    linkText: "Explore Targeting",
-  },
-];
+const iconMap: Record<string, React.ReactNode> = {
+  paywall: <PaywallIcon />,
+  experiment: <ExperimentIcon />,
+  target: <TargetIcon />,
+};
+
+const rocketsim = getTestimonial("rocketsim");
+
+const features = iterateFeatures.map((f) => ({
+  ...f,
+  icon: iconMap[f.iconKey],
+}));
 
 function PanelPaywalls() {
   return (
@@ -207,9 +191,7 @@ export function SectionIterateV2() {
                         <p className="text-base leading-snug text-gray-800 mb-3">
                           {f.description}
                         </p>
-                        <a className="font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium text-sm" href={f.link}>
-                          {f.linkText} <ArrowIcon />
-                        </a>
+                        <LinkWithArrow href={f.link}>{f.linkText}</LinkWithArrow>
                       </div>
                     </div>
                   </div>
@@ -219,10 +201,10 @@ export function SectionIterateV2() {
                 <div className="mt-auto pt-6 rounded-xl bg-white p-5 border border-border-light" style={{ boxShadow: "0 4px 12px rgba(144,138,208,0.08)" }}>
                   <div className="flex items-center gap-3 mb-3">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className="size-9 rounded-xl object-contain" src="https://cdn.sanity.io/images/c3qnx9b0/production/39f531e18947f35909fa6c1dd5858d562f2b1db9-80x80.svg?w=64&q=75&auto=format" alt="RocketSim" width={36} height={36} />
+                    <img className="size-9 rounded-xl object-contain" src={rocketsim.logo} alt={rocketsim.company} width={36} height={36} />
                     <div>
-                      <p className="text-sm font-medium text-primary leading-tight">RocketSim</p>
-                      <p className="text-[12px] text-gray-750 leading-tight">Antoine van der Lee, Founder</p>
+                      <p className="text-sm font-medium text-primary leading-tight">{rocketsim.company}</p>
+                      <p className="text-[12px] text-gray-750 leading-tight">{rocketsim.person}, {rocketsim.title}</p>
                     </div>
                   </div>
                   <p className="text-[15px] leading-snug text-gray-800">
@@ -278,9 +260,7 @@ export function SectionIterateV2() {
                           )}
                         </h3>
                         <p className="text-base leading-snug text-gray-800 mb-3">{f.description}</p>
-                        <a className="font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium text-sm" href={f.link}>
-                          {f.linkText} <ArrowIcon />
-                        </a>
+                        <LinkWithArrow href={f.link}>{f.linkText}</LinkWithArrow>
                       </div>
                     </div>
                     <div className="h-[300px] rounded-2xl bg-white/40 border border-border-light/50 overflow-hidden scale-[0.8] origin-top">
@@ -293,10 +273,10 @@ export function SectionIterateV2() {
               <div className="rounded-xl bg-white p-5 border border-border-light" style={{ boxShadow: "0 4px 12px rgba(144,138,208,0.08)" }}>
                 <div className="flex items-center gap-3 mb-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img className="size-9 rounded-xl object-contain" src="https://cdn.sanity.io/images/c3qnx9b0/production/39f531e18947f35909fa6c1dd5858d562f2b1db9-80x80.svg?w=64&q=75&auto=format" alt="RocketSim" width={36} height={36} />
+                  <img className="size-9 rounded-xl object-contain" src={rocketsim.logo} alt={rocketsim.company} width={36} height={36} />
                   <div>
-                    <p className="text-sm font-medium text-primary leading-tight">RocketSim</p>
-                    <p className="text-[12px] text-gray-750 leading-tight">Antoine van der Lee, Founder</p>
+                    <p className="text-sm font-medium text-primary leading-tight">{rocketsim.company}</p>
+                    <p className="text-[12px] text-gray-750 leading-tight">{rocketsim.person}, {rocketsim.title}</p>
                   </div>
                 </div>
                 <p className="text-[15px] leading-snug text-gray-800">

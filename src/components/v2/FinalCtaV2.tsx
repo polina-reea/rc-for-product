@@ -1,4 +1,5 @@
-import { ArrowIcon } from "../ArrowIcon";
+import { Button } from "@/components/ui/Button";
+import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
 import { FloatingBlobs } from "./FloatingBlobs";
 
 export function FinalCtaV2() {
@@ -13,21 +14,8 @@ export function FinalCtaV2() {
           Every feature comes standard, and it&apos;s free to&nbsp;start.
         </p>
         <div className="mt-8 flex items-center gap-8 max-xl:mt-6 max-lg:mt-5 max-lg:gap-6 max-md:mt-6">
-          <a
-            className="v2-btn-gradient v2-btn-shimmer whitespace-nowrap font-object font-medium relative inline-flex w-fit items-center justify-center gap-1 text-white h-12 rounded-full text-base px-7 max-md:h-11 max-md:text-sm"
-            href="https://app.revenuecat.com/signup"
-          >
-            <span className="relative z-10 inline-flex whitespace-nowrap items-center justify-center gap-1 w-full">
-              Start for free
-            </span>
-          </a>
-          <a
-            className="font-object inline-flex items-center gap-1 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium"
-            href="https://demo.revenuecat.com/"
-          >
-            Explore Demo
-            <ArrowIcon className="w-1.5" />
-          </a>
+          <Button href="https://app.revenuecat.com/signup" variant="gradient">Start for free</Button>
+          <LinkWithArrow href="https://demo.revenuecat.com/" size="base">Explore Demo</LinkWithArrow>
         </div>
       </div>
     </section>

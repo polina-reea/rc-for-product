@@ -1,4 +1,5 @@
-import { ArrowIcon } from "./ArrowIcon";
+import { Button } from "@/components/ui/Button";
+import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
 import { TestimonialCarousel } from "./TestimonialCarousel";
 
 export function Hero() {
@@ -16,21 +17,8 @@ export function Hero() {
           Design paywalls, run A/B experiments, and ship remotely. All from the dashboard. No&nbsp;app&nbsp;release, no&nbsp;engineering&nbsp;tasks, no&nbsp;waiting.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-8 max-xl:gap-5 max-lg:justify-center">
-          <a
-            className="transition-colors duration-300 whitespace-nowrap font-object font-medium relative inline-flex w-fit items-center justify-center gap-1 bg-secondary-blue-1 hover:bg-secondary-blue-2 text-white h-12 rounded-full text-base px-7 max-md:h-11 max-md:text-sm tracking-dense max-lg:h-11"
-            href="https://app.revenuecat.com/signup"
-          >
-            <span className="relative z-10 inline-flex whitespace-nowrap items-center justify-center gap-1 w-full">
-              Start for free
-            </span>
-          </a>
-          <a
-            className="font-object inline-flex items-center rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 gap-2 font-medium"
-            href="https://demo.revenuecat.com/"
-          >
-            Explore Demo
-            <ArrowIcon className="w-1.5" />
-          </a>
+          <Button href="https://app.revenuecat.com/signup" className="tracking-dense max-lg:h-11">Start for free</Button>
+          <LinkWithArrow href="https://demo.revenuecat.com/" size="base">Explore Demo</LinkWithArrow>
         </div>
       </div>
 

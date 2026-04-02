@@ -1,128 +1,39 @@
 "use client";
 
-import { useState, useRef, useCallback, type ReactNode } from "react";
+import { useState, useRef, useCallback, useEffect, type ReactNode } from "react";
+import { testimonials as testimonialData } from "@/data/testimonials";
 
-const CARD_HEIGHT = 280; // fixed card height in px
+const CARD_HEIGHT_DESKTOP = 380;
+const CARD_HEIGHT_MOBILE = 280;
 
-const testimonials: {
-  company: string;
-  category: string;
-  logo: string;
-  quote: ReactNode;
-  quoteClass: string;
-  person: string;
-  title: string;
-  avatar: string;
-  link: string;
-}[] = [
-  {
-    company: "ChatGPT",
-    category: "AI-Powered Conversational Assistant",
-    logo: "https://cdn.sanity.io/images/c3qnx9b0/production/26753149521bfd2786c698504599908365f707f4-80x80.svg?w=128&q=75&auto=format",
+const testimonials = testimonialData
+  .filter((t) => t.id !== "floga") // carousel excludes floga
+  .map((t) => ({
+    company: t.company,
+    category: t.category,
+    logo: t.logo,
     quote: (
       <>
-        With RevenueCat, we{" "}
-        <strong className="font-medium text-primary">never had to slow down</strong>.
-        They made it easy to keep our focus on building the best product while
-        ensuring our mission of accessible, safe AI for everyone.
+        {t.quoteParts.before}
+        <strong className="font-medium text-primary">{t.quoteParts.bold}</strong>
+        {t.quoteParts.after}
       </>
-    ),
-    quoteClass: "text-lg",
-    person: "Sara Conlon",
-    title: "Head of Financial Engineering",
-    avatar:
-      "https://cdn.sanity.io/images/c3qnx9b0/production/11799f6c149ca96216c10ad887cfb2d546fba164-96x96.jpg?w=96&q=75&auto=format",
-    link: "https://www.revenuecat.com/customers/revenuecat-openai",
-  },
-  {
-    company: "HOLYWATER",
-    category: "Streaming & Entertainment",
-    logo: "https://cdn.sanity.io/images/c3qnx9b0/production/89186aeb48369a707fd6e2203f844f63fe4d2174-80x80.svg?w=128&q=75&auto=format",
-    quote: (
-      <>
-        RevenueCat{" "}
-        <strong className="font-medium text-primary">eliminates the manual work</strong>.
-        We can set up new products, entitlements, and price tiers
-        quickly&mdash;without spending days building backend logic.
-      </>
-    ),
-    quoteClass: "text-lg",
-    person: "Anatolii Kasianov",
-    title: "CTO and Co-founder",
-    avatar:
-      "https://cdn.sanity.io/images/c3qnx9b0/production/71ea6ff5cd78c0ba1e3afcce90d83c7875974c61-72x72.webp?w=96&q=75&auto=format",
-    link: "https://www.revenuecat.com/customers/holywater/",
-  },
-  {
-    company: "dub",
-    category: "Music Streaming",
-    logo: "https://cdn.sanity.io/images/c3qnx9b0/production/14acecb4a197d80dfa7986b2d8155c6a62256ca4-80x80.svg?w=128&q=75&auto=format",
-    quote: (
-      <>
-        Moving from monthly to annual subscriptions was the most important shift
-        we made for our business. RevenueCat gave us the flexibility to{" "}
-        <strong className="font-medium text-primary">
-          run A/B tests without engineering overhead
-        </strong>
-        , which was a game changer.
-      </>
-    ),
-    quoteClass: "text-base",
-    person: "Brett Chereskin",
-    title: "COO",
-    avatar:
-      "https://cdn.sanity.io/images/c3qnx9b0/production/6b050be5acd2b53a12419b06a9cb648a6fb7800b-80x80.jpg?w=96&q=75&auto=format",
-    link: "https://www.revenuecat.com/customers/dub-app",
-  },
-  {
-    company: "VSCO",
-    category: "Photo Filters",
-    logo: "https://cdn.sanity.io/images/c3qnx9b0/production/c067c6e0abe15a50015961e743f0fba52e9cd260-80x80.svg?w=128&q=75&auto=format",
-    quote: (
-      <>
-        The RevenueCat and Braze integration allowed us to implement{" "}
-        <strong className="font-medium text-primary">fast winback messaging</strong>.
-      </>
-    ),
-    quoteClass: "text-xl",
-    person: "Shaheen Essabhoy",
-    title: "Business Intelligence",
-    avatar:
-      "https://cdn.sanity.io/images/c3qnx9b0/production/aa695acb486b9b84caaf0dae1f49933a62318122-82x82.jpg?w=96&q=75&auto=format",
-    link: "https://www.revenuecat.com/customers/vsco/",
-  },
-  {
-    company: "RocketSim",
-    category: "An essential tool for app developers",
-    logo: "https://cdn.sanity.io/images/c3qnx9b0/production/39f531e18947f35909fa6c1dd5858d562f2b1db9-80x80.svg?w=128&q=75&auto=format",
-    quote: (
-      <>
-        Using RevenueCat Experiments, I{" "}
-        <strong className="font-medium text-primary">
-          increased RocketSim&rsquo;s LTV by 47%
-        </strong>
-        . Experiments allowed me to quickly deploy tests for subscription
-        duration mix and trial duration, all remotely without a new app
-        submission.
-      </>
-    ),
-    quoteClass: "text-base",
-    person: "Antoine van der Lee",
-    title: "Founder",
-    avatar:
-      "https://cdn.sanity.io/images/c3qnx9b0/production/681fa4aaa9574a6e693bc6fa348fdf5f6721710c-400x400.jpg?w=96&q=75&auto=format",
-    link: "https://www.revenuecat.com/customers/rocketsim/",
-  },
-];
+    ) as ReactNode,
+    quoteClass: t.quoteClass || "text-base",
+    person: t.person,
+    title: t.title,
+    avatar: t.avatar,
+    link: t.link,
+  }));
 
 const GAP = 32; // gap between cards in px
 const PEEK = 100; // how much of prev/next card is visible
 
-function Card({ t, isActive }: { t: (typeof testimonials)[number]; isActive: boolean }) {
+function Card({ t, isActive, height }: { t: (typeof testimonials)[number]; isActive: boolean; height: number }) {
   return (
     <article
-      className="w-full max-w-[420px] flex flex-col rounded-2xl border border-border bg-white p-6 max-md:p-4"
-      style={{ boxShadow: "0 4px 12px rgba(144, 138, 208, 0.08)", height: CARD_HEIGHT }}
+      className="w-full min-w-[420px] max-w-[480px] flex flex-col rounded-2xl border border-border bg-white p-6 max-md:min-w-0 max-md:max-w-[420px] max-md:p-4"
+      style={{ boxShadow: "0 4px 12px rgba(144, 138, 208, 0.08)", height }}
     >
       <header className="grid grid-cols-[64px_1fr] gap-x-4 gap-y-0.5 max-md:grid-cols-[48px_1fr] max-md:gap-x-3">
         <div className="row-span-2 flex size-16 max-md:size-12 items-center justify-center overflow-hidden rounded-[20px] max-md:rounded-[14px]">
@@ -177,12 +88,20 @@ export function TestimonialCarousel() {
   const [pos, setPos] = useState(1);
   const [animate, setAnimate] = useState(true);
   const isTransitioning = useRef(false);
+  const [cardHeight, setCardHeight] = useState(CARD_HEIGHT_DESKTOP);
 
-  const STEP = CARD_HEIGHT + GAP;
+  useEffect(() => {
+    const update = () => setCardHeight(window.innerWidth < 768 ? CARD_HEIGHT_MOBILE : CARD_HEIGHT_DESKTOP);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const STEP = cardHeight + GAP;
   const translateY = -(pos * STEP) + PEEK + GAP;
-  const viewportHeight = PEEK + GAP + CARD_HEIGHT + GAP + PEEK;
+  const viewportHeight = PEEK + GAP + cardHeight + GAP + PEEK;
 
-  const maskGradient = `linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) ${PEEK}px, black ${PEEK + GAP}px, black ${PEEK + GAP + CARD_HEIGHT}px, rgba(0,0,0,0.6) ${PEEK + GAP + CARD_HEIGHT + GAP}px, transparent 100%)`;
+  const maskGradient = `linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) ${PEEK}px, black ${PEEK + GAP}px, black ${PEEK + GAP + cardHeight}px, rgba(0,0,0,0.6) ${PEEK + GAP + cardHeight + GAP}px, transparent 100%)`;
 
   const realIndex = (pos - 1 + testimonials.length) % testimonials.length;
 
@@ -213,7 +132,7 @@ export function TestimonialCarousel() {
   };
 
   return (
-    <div className="relative w-full max-w-[420px] mx-auto">
+    <div className="relative w-full max-w-[480px] max-md:max-w-[420px] mx-auto">
       {/* Viewport */}
       <div
         className="relative overflow-hidden"
@@ -239,6 +158,7 @@ export function TestimonialCarousel() {
               key={`${t.company}-${i}`}
               t={t}
               isActive={i === pos}
+              height={cardHeight}
             />
           ))}
         </div>

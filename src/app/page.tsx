@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
 
 export default function Home() {
   return (
@@ -45,12 +46,7 @@ export default function Home() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-          <Link
-            href="/v1"
-            className="transition-colors duration-300 whitespace-nowrap font-object font-medium relative inline-flex w-fit items-center justify-center gap-1 bg-secondary-blue-1 hover:bg-secondary-blue-2 text-white h-14 rounded-full text-base px-10 tracking-dense"
-          >
-            Version 1 — RC Style
-          </Link>
+          <Button href="/v1" size="large">Version 1 — RC Style</Button>
           <Link
             href="/v2"
             className="transition-colors duration-300 whitespace-nowrap font-object font-medium relative inline-flex w-fit items-center justify-center gap-1 bg-primary hover:bg-secondary-blue-2 text-white h-14 rounded-full text-base px-10 tracking-dense"

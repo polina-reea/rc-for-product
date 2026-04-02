@@ -1,4 +1,5 @@
-import { ArrowIcon } from "./ArrowIcon";
+import { Button } from "@/components/ui/Button";
+import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
 
 export function FinalCta() {
   return (
@@ -11,21 +12,8 @@ export function FinalCta() {
           Every feature comes standard, and it&apos;s free to start.
         </p>
         <div className="mt-8 flex items-center gap-8 max-xl:mt-6 max-lg:mt-5 max-lg:gap-6 max-md:mt-6">
-          <a
-            className="transition-colors duration-300 whitespace-nowrap font-object font-medium relative inline-flex w-fit items-center justify-center gap-1 bg-secondary-blue-1 hover:bg-secondary-blue-2 text-white h-12 rounded-full text-base px-7 max-md:h-11 max-md:text-sm"
-            href="https://app.revenuecat.com/signup"
-          >
-            <span className="relative z-10 inline-flex whitespace-nowrap items-center justify-center gap-1 w-full">
-              Start for free
-            </span>
-          </a>
-          <a
-            className="font-object inline-flex items-center gap-1 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium"
-            href="https://demo.revenuecat.com/"
-          >
-            Explore Demo
-            <ArrowIcon className="w-1.5" />
-          </a>
+          <Button href="https://app.revenuecat.com/signup">Start for free</Button>
+          <LinkWithArrow href="https://demo.revenuecat.com/" size="base">Explore Demo</LinkWithArrow>
         </div>
       </div>
     </section>

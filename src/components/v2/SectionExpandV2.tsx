@@ -1,30 +1,23 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowIcon } from "../ArrowIcon";
+import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
 import { GlobeIcon, BillingIcon } from "../Icons";
 import { StepFunnels, StepBilling } from "../ExpandSequence";
+import { expandFeatures } from "@/data/features";
+import { getTestimonial } from "@/data/testimonials";
 
-const features = [
-  {
-    id: "funnels",
-    icon: <GlobeIcon />,
-    iconColor: "shadow-feature-blue text-secondary-blue-1",
-    title: "Build web funnels",
-    description: "Multi-step funnels with branching logic. Segment by country, survey response, or UTM\u00A0source. Step-by-step conversion analytics show exactly where users drop\u00A0off.",
-    link: "https://www.revenuecat.com/feature/funnels/",
-    linkText: "Explore Funnels",
-  },
-  {
-    id: "billing",
-    icon: <BillingIcon />,
-    iconColor: "shadow-feature-green text-secondary-green",
-    title: "Skip the 30%",
-    description: "Stripe, Apple Pay, or Google Pay checkout. Test prices the App Store won\u2019t let you. Web purchases auto-unlock in-app\u00A0entitlements.",
-    link: "https://www.revenuecat.com/feature/billing/",
-    linkText: "Explore Web Billing",
-  },
-];
+const iconMap: Record<string, React.ReactNode> = {
+  globe: <GlobeIcon />,
+  billing: <BillingIcon />,
+};
+
+const floga = getTestimonial("floga");
+
+const features = expandFeatures.map((f) => ({
+  ...f,
+  icon: iconMap[f.iconKey],
+}));
 
 function PanelFunnels() {
   return (
@@ -124,9 +117,7 @@ export function SectionExpandV2() {
                         <p className="text-base leading-snug text-gray-800 mb-3">
                           {f.description}
                         </p>
-                        <a className="font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium text-sm" href={f.link}>
-                          {f.linkText} <ArrowIcon />
-                        </a>
+                        <LinkWithArrow href={f.link}>{f.linkText}</LinkWithArrow>
                       </div>
                     </div>
                   </div>
@@ -136,16 +127,16 @@ export function SectionExpandV2() {
                 <div className="mt-auto pt-6 rounded-xl bg-white p-5 border border-border-light" style={{ boxShadow: "0 4px 12px rgba(144,138,208,0.08)" }}>
                   <div className="flex items-center gap-3 mb-3">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className="size-9 rounded-xl object-contain" src="https://cdn.sanity.io/images/c3qnx9b0/production/72bc3edc393f03211054a0a2fbaa95c7baf0ec28-80x80.svg?w=64&q=75&auto=format" alt="Floga" width={36} height={36} />
+                    <img className="size-9 rounded-xl object-contain" src={floga.logo} alt={floga.company} width={36} height={36} />
                     <div>
-                      <p className="text-sm font-medium text-primary leading-tight">Floga</p>
-                      <p className="text-[12px] text-gray-750 leading-tight">Fitness Community</p>
+                      <p className="text-sm font-medium text-primary leading-tight">{floga.company}</p>
+                      <p className="text-[12px] text-gray-750 leading-tight">{floga.category}</p>
                     </div>
                   </div>
                   <p className="text-[15px] leading-snug text-gray-800 mb-2.5">
-                    Generated <strong className="font-medium v2-gradient-text">$120K+ in one&nbsp;day</strong>{" "}of pre-launch lifetime memberships via RevenueCat Web&nbsp;Billing.
+                    {floga.quoteParts.before}<strong className="font-medium v2-gradient-text">{floga.quoteParts.bold}</strong>{floga.quoteParts.after}
                   </p>
-                  <a className="font-object inline-flex items-center gap-1 text-[13px] text-secondary-blue-1 hover:text-secondary-blue-2 font-medium transition-colors" href="https://www.revenuecat.com/customers/floga" target="_blank" rel="noopener noreferrer">
+                  <a className="font-object inline-flex items-center gap-1 text-[13px] text-secondary-blue-1 hover:text-secondary-blue-2 font-medium transition-colors" href={floga.link} target="_blank" rel="noopener noreferrer">
                     Read Case Study
                     <svg className="w-1.5! shrink-0" viewBox="0 0 7 9" xmlns="http://www.w3.org/2000/svg"><path clipRule="evenodd" d="m0 9.002 6.998-3.844V3.844L0 0v1.711l5.08 2.79L0 7.291z" fill="currentColor" fillRule="evenodd" /></svg>
                   </a>
@@ -188,9 +179,7 @@ export function SectionExpandV2() {
                       <div>
                         <h3 className="font-object text-xl leading-tight tracking-tighter text-primary font-medium mb-2">{f.title}</h3>
                         <p className="text-base leading-snug text-gray-800 mb-3">{f.description}</p>
-                        <a className="font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium text-sm" href={f.link}>
-                          {f.linkText} <ArrowIcon />
-                        </a>
+                        <LinkWithArrow href={f.link}>{f.linkText}</LinkWithArrow>
                       </div>
                     </div>
                     <div className="h-[300px] rounded-2xl bg-white/40 border border-border-light/50 overflow-hidden flex items-center justify-center">

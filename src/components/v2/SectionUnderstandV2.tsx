@@ -1,6 +1,17 @@
-import { ArrowIcon } from "../ArrowIcon";
+import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
 import { FloatingBlobs } from "./FloatingBlobs";
 import { LtvIcon, ChartIcon, DataIcon } from "../Icons";
+import { understandFeatures } from "@/data/features";
+import { analyticsIntegrations } from "@/data/integrations";
+import { getTestimonial } from "@/data/testimonials";
+
+const iconMap: Record<string, React.ReactNode> = {
+  ltv: <LtvIcon />,
+  chart: <ChartIcon />,
+  data: <DataIcon />,
+};
+
+const holywater = getTestimonial("holywater");
 
 export function SectionUnderstandV2() {
   return (
@@ -21,41 +32,14 @@ export function SectionUnderstandV2() {
 
         {/* Feature list - centered like Pillars */}
         <ul className="relative grid w-full grid-cols-3 gap-16 max-lg:gap-10 max-md:grid-cols-1 max-md:gap-10 mb-16">
-          {[
-            {
-              icon: <LtvIcon />,
-              title: "Predict, don\u2019t react",
-              description: "LTV Prediction forecasts revenue by cohort. Cohort Explorer lets you slice by acquisition source, country, or custom segment.",
-              color: "shadow-feature-blue text-secondary-blue-1",
-              explorer: true,
-            },
-            {
-              icon: <ChartIcon />,
-              title: "Paywall performance",
-              description: "Four real-time charts: encounter rates, conversion, LTV by paywall, and abandonment. See what earns, not just what gets clicks.",
-              color: "shadow-feature-red text-secondary-red",
-              chart: true,
-            },
-            {
-              icon: <DataIcon />,
-              title: "Your data, everywhere",
-              description: "Stream events to Amplitude, Mixpanel, Segment, or your warehouse via Charts API and webhooks. No analyst bottleneck.",
-              color: "shadow-feature-green text-secondary-green",
-              logos: [
-                { name: "Amplitude", src: "/integrations/Amplitude.svg" },
-                { name: "Mixpanel", src: "/integrations/Mixpanel.svg" },
-                { name: "Segment", src: "/integrations/Segment.svg" },
-                { name: "Slack", src: "/integrations/Slack.svg" },
-              ],
-            },
-          ].map((feature) => (
+          {understandFeatures.map((feature) => (
             <li key={feature.title} className="relative flex flex-col items-center gap-4 text-center max-md:gap-3">
               <div
                 className={`flex size-10 shrink-0 items-center justify-center rounded-full bg-white/80 ${feature.color}`}
                 aria-hidden="true"
               >
                 <span className="inline-flex items-center justify-center size-5">
-                  {feature.icon}
+                  {iconMap[feature.iconKey]}
                 </span>
               </div>
               <h3 className="font-object text-2xl leading-none tracking-tighter text-primary max-lg:text-xl max-md:text-lg">
@@ -64,7 +48,7 @@ export function SectionUnderstandV2() {
               <p className="text-base leading-snug font-light text-gray-800 max-lg:text-sm max-md:text-base max-md:max-w-[280px] max-md:mx-auto">
                 {feature.description}
               </p>
-              {feature.explorer && (
+              {feature.variant === "explorer" && (
                 <div className="mt-1 rounded-lg border border-border-light bg-white p-2.5 w-[200px]">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-[9px] font-medium text-primary">Cohort Explorer</span>
@@ -81,7 +65,7 @@ export function SectionUnderstandV2() {
                   </div>
                 </div>
               )}
-              {feature.chart && (
+              {feature.variant === "chart" && (
                 <div className="mt-1 rounded-lg border border-border-light bg-white p-3 w-[240px]">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[10px] font-medium text-primary">Paywall Conversion</span>
@@ -92,9 +76,9 @@ export function SectionUnderstandV2() {
                   </svg>
                 </div>
               )}
-              {feature.logos && (
+              {feature.variant === "logos" && (
                 <div className="flex items-center justify-center gap-4 mt-1">
-                  {feature.logos.map((logo: { name: string; src: string }) => (
+                  {analyticsIntegrations.map((logo) => (
                     /* eslint-disable-next-line @next/next/no-img-element */
                     <img key={logo.name} className="h-7 w-7 object-contain" src={logo.src} alt={logo.name} height={28} width={28} />
                   ))}
@@ -108,10 +92,10 @@ export function SectionUnderstandV2() {
         <div className="max-w-lg mx-auto mb-10 rounded-xl bg-white p-5 border border-border-light" style={{ boxShadow: "0 4px 12px rgba(144,138,208,0.08)" }}>
           <div className="flex items-center gap-3 mb-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="size-9 rounded-xl object-contain" src="https://cdn.sanity.io/images/c3qnx9b0/production/89186aeb48369a707fd6e2203f844f63fe4d2174-80x80.svg?w=64&q=75&auto=format" alt="HOLYWATER" width={36} height={36} />
+            <img className="size-9 rounded-xl object-contain" src={holywater.logo} alt={holywater.company} width={36} height={36} />
             <div>
-              <p className="text-sm font-medium text-primary leading-tight">HOLYWATER</p>
-              <p className="text-[12px] text-gray-750 leading-tight">Anatolii Kasianov, CTO</p>
+              <p className="text-sm font-medium text-primary leading-tight">{holywater.company}</p>
+              <p className="text-[12px] text-gray-750 leading-tight">{holywater.person}, CTO</p>
             </div>
           </div>
           <p className="text-[15px] leading-snug text-gray-800">
@@ -120,9 +104,7 @@ export function SectionUnderstandV2() {
         </div>
 
         <div className="text-center">
-          <a className="font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium" href="https://www.revenuecat.com/feature/charts/">
-            Explore Charts <ArrowIcon />
-          </a>
+          <LinkWithArrow href="https://www.revenuecat.com/feature/charts/" size="base">Explore Charts</LinkWithArrow>
         </div>
       </div>
     </section>

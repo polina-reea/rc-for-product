@@ -1,26 +1,10 @@
-const pillars = [
-  {
-    number: "1",
-    title: "Iterate",
-    description: "Ship paywalls, run experiments, and target users. No app release\u00A0needed.",
-    tags: ["Paywalls", "Experiments", "Targeting"],
-    color: "text-secondary-blue-1",
-  },
-  {
-    number: "2",
-    title: "Understand",
-    description: "Real-time Charts, LTV Prediction, and Cohort Explorer. Know what\u00A0works.",
-    tags: ["Charts", "LTV Prediction", "Cohort Explorer"],
-    color: "text-secondary-blue-1",
-  },
-  {
-    number: "3",
-    title: "Expand",
-    description: "Web Funnels and Stripe-powered Billing. Reach users before the App\u00A0Store.",
-    tags: ["Funnels", "Web Billing"],
-    color: "text-secondary-blue-1",
-  },
-];
+import { pillars as pillarData } from "@/data/pillars";
+
+const pillars = pillarData.map((p) => ({
+  ...p,
+  title: p.shortTitle,
+  color: "text-secondary-blue-1",
+}));
 
 export function Pillars() {
   return (

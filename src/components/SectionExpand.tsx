@@ -1,6 +1,16 @@
-import { ArrowIcon } from "./ArrowIcon";
+import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
 import { GlobeIcon, BillingIcon } from "./Icons";
 import { ExpandSequence, StepFunnels, StepBilling } from "./ExpandSequence";
+import { expandFeaturesV1 } from "@/data/features";
+import { getTestimonial } from "@/data/testimonials";
+
+const iconMap: Record<string, React.ReactNode> = {
+  globe: <GlobeIcon />,
+  billing: <BillingIcon />,
+};
+
+const floga = getTestimonial("floga");
+const [funnelFeature, billingFeature] = expandFeaturesV1;
 
 export function SectionExpand() {
   return (
@@ -18,36 +28,32 @@ export function SectionExpand() {
           <div className="mx-auto flex shrink flex-col justify-center pr-24 max-xl:pr-13">
             <ul className="flex flex-col gap-7">
               <li className="relative flex gap-4.5 max-xl:gap-3.5">
-                <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/80 shadow-feature-blue text-secondary-blue-1" aria-hidden="true">
-                  <span className="inline-flex items-center justify-center size-5"><GlobeIcon /></span>
+                <div className={`flex size-10 shrink-0 items-center justify-center rounded-full bg-white/80 ${funnelFeature.iconColor}`} aria-hidden="true">
+                  <span className="inline-flex items-center justify-center size-5">{iconMap[funnelFeature.iconKey]}</span>
                 </div>
                 <div className="flex max-w-140 flex-col gap-4">
                   <h3 className="mt-2 font-object text-2xl leading-none tracking-tighter text-primary max-xl:text-xl">
-                    Web-to-app onboarding
+                    {funnelFeature.title}
                   </h3>
                   <p className="-mt-1.75 text-xl leading-snug font-light text-gray-800 max-xl:text-base">
-                    Multi-step funnels with branching logic. Segment by country, survey response, or UTM&nbsp;source. Step-by-step conversion analytics show exactly where users drop&nbsp;off.
+                    {funnelFeature.description}
                   </p>
-                  <a className="font-object inline-flex items-center rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 gap-2 font-medium" href="https://www.revenuecat.com/feature/funnels/">
-                    Explore Funnels <ArrowIcon />
-                  </a>
+                  <LinkWithArrow href={funnelFeature.link} size="base">{funnelFeature.linkText}</LinkWithArrow>
                 </div>
               </li>
 
               <li className="relative flex gap-4.5 max-xl:gap-3.5">
-                <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/80 shadow-feature-green text-secondary-green" aria-hidden="true">
-                  <span className="inline-flex items-center justify-center size-5"><BillingIcon /></span>
+                <div className={`flex size-10 shrink-0 items-center justify-center rounded-full bg-white/80 ${billingFeature.iconColor}`} aria-hidden="true">
+                  <span className="inline-flex items-center justify-center size-5">{iconMap[billingFeature.iconKey]}</span>
                 </div>
                 <div className="flex max-w-140 flex-col gap-4">
                   <h3 className="mt-2 font-object text-2xl leading-none tracking-tighter text-primary max-xl:text-xl">
-                    Skip the 30%
+                    {billingFeature.title}
                   </h3>
                   <p className="-mt-1.75 text-xl leading-snug font-light text-gray-800 max-xl:text-base">
-                    Stripe, Apple Pay, or Google Pay checkout. Test prices the App Store won&apos;t let you. Web purchases auto-unlock in-app&nbsp;entitlements.
+                    {billingFeature.description}
                   </p>
-                  <a className="font-object inline-flex items-center rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 gap-2 font-medium" href="https://www.revenuecat.com/feature/billing/">
-                    Explore Web Billing <ArrowIcon />
-                  </a>
+                  <LinkWithArrow href={billingFeature.link} size="base">{billingFeature.linkText}</LinkWithArrow>
                 </div>
               </li>
             </ul>
@@ -56,16 +62,16 @@ export function SectionExpand() {
             <div className="mt-12 rounded-xl bg-white p-5 border border-border-light" style={{ boxShadow: "0 4px 12px rgba(144,138,208,0.08)" }}>
               <div className="flex items-center gap-3 mb-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className="size-9 rounded-xl object-contain" src="https://cdn.sanity.io/images/c3qnx9b0/production/72bc3edc393f03211054a0a2fbaa95c7baf0ec28-80x80.svg?w=64&q=75&auto=format" alt="Floga" width={36} height={36} />
+                <img className="size-9 rounded-xl object-contain" src={floga.logo} alt={floga.company} width={36} height={36} />
                 <div>
-                  <p className="text-sm font-medium text-primary leading-tight">Floga</p>
-                  <p className="text-[12px] text-gray-750 leading-tight">Umberto Mezzadra, CEO</p>
+                  <p className="text-sm font-medium text-primary leading-tight">{floga.company}</p>
+                  <p className="text-[12px] text-gray-750 leading-tight">{floga.person}, {floga.title}</p>
                 </div>
               </div>
               <p className="text-[15px] leading-snug text-gray-800 mb-2.5">
-                Generated <strong className="font-medium text-secondary-blue-1">$120K+ in one&nbsp;day</strong>{" "}of pre-launch lifetime memberships via RevenueCat Web&nbsp;Billing.
+                {floga.quoteParts.before}<strong className="font-medium text-secondary-blue-1">{floga.quoteParts.bold}</strong>{floga.quoteParts.after}
               </p>
-              <a className="font-object inline-flex items-center gap-1 text-[13px] text-secondary-blue-1 hover:text-secondary-blue-2 font-medium transition-colors" href="https://www.revenuecat.com/customers/floga" target="_blank" rel="noopener noreferrer">
+              <a className="font-object inline-flex items-center gap-1 text-[13px] text-secondary-blue-1 hover:text-secondary-blue-2 font-medium transition-colors" href={floga.link} target="_blank" rel="noopener noreferrer">
                 Read Case Study
                 <svg className="w-1.5! shrink-0" viewBox="0 0 7 9" xmlns="http://www.w3.org/2000/svg"><path clipRule="evenodd" d="m0 9.002 6.998-3.844V3.844L0 0v1.711l5.08 2.79L0 7.291z" fill="currentColor" fillRule="evenodd" /></svg>
               </a>
@@ -83,19 +89,17 @@ export function SectionExpand() {
           {/* Funnels */}
           <div className="flex flex-col gap-5">
             <div className="flex gap-3.5">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/80 shadow-feature-blue text-secondary-blue-1" aria-hidden="true">
-                <span className="inline-flex items-center justify-center size-5"><GlobeIcon /></span>
+              <div className={`flex size-10 shrink-0 items-center justify-center rounded-full bg-white/80 ${funnelFeature.iconColor}`} aria-hidden="true">
+                <span className="inline-flex items-center justify-center size-5">{iconMap[funnelFeature.iconKey]}</span>
               </div>
               <div>
                 <h3 className="font-object text-lg leading-tight tracking-tighter text-primary font-medium mb-2">
-                  Web-to-app onboarding
+                  {funnelFeature.title}
                 </h3>
                 <p className="text-base leading-snug text-gray-800 mb-3">
-                  Multi-step funnels with branching logic. Segment by country, survey response, or UTM&nbsp;source. Step-by-step conversion analytics show exactly where users drop&nbsp;off.
+                  {funnelFeature.description}
                 </p>
-                <a className="font-object inline-flex items-center rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 gap-2 font-medium text-sm" href="https://www.revenuecat.com/feature/funnels/">
-                  Explore Funnels <ArrowIcon />
-                </a>
+                <LinkWithArrow href={funnelFeature.link}>{funnelFeature.linkText}</LinkWithArrow>
               </div>
             </div>
             <div className="h-[300px] rounded-2xl bg-white/50 border border-border-light/50 overflow-hidden flex items-center justify-center">
@@ -108,19 +112,17 @@ export function SectionExpand() {
           {/* Billing */}
           <div className="flex flex-col gap-5">
             <div className="flex gap-3.5">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/80 shadow-feature-green text-secondary-green" aria-hidden="true">
-                <span className="inline-flex items-center justify-center size-5"><BillingIcon /></span>
+              <div className={`flex size-10 shrink-0 items-center justify-center rounded-full bg-white/80 ${billingFeature.iconColor}`} aria-hidden="true">
+                <span className="inline-flex items-center justify-center size-5">{iconMap[billingFeature.iconKey]}</span>
               </div>
               <div>
                 <h3 className="font-object text-lg leading-tight tracking-tighter text-primary font-medium mb-2">
-                  Skip the 30%
+                  {billingFeature.title}
                 </h3>
                 <p className="text-base leading-snug text-gray-800 mb-3">
-                  Stripe, Apple Pay, or Google Pay checkout. Test prices the App Store won&apos;t let you. Web purchases auto-unlock in-app&nbsp;entitlements.
+                  {billingFeature.description}
                 </p>
-                <a className="font-object inline-flex items-center rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 gap-2 font-medium text-sm" href="https://www.revenuecat.com/feature/billing/">
-                  Explore Web Billing <ArrowIcon />
-                </a>
+                <LinkWithArrow href={billingFeature.link}>{billingFeature.linkText}</LinkWithArrow>
               </div>
             </div>
             <div className="h-[300px] rounded-2xl bg-white/50 border border-border-light/50 overflow-hidden flex items-center justify-center">
@@ -134,16 +136,16 @@ export function SectionExpand() {
           <div className="rounded-xl bg-white p-5 border border-border-light" style={{ boxShadow: "0 4px 12px rgba(144,138,208,0.08)" }}>
             <div className="flex items-center gap-3 mb-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img className="size-9 rounded-xl object-contain" src="https://cdn.sanity.io/images/c3qnx9b0/production/72bc3edc393f03211054a0a2fbaa95c7baf0ec28-80x80.svg?w=64&q=75&auto=format" alt="Floga" width={36} height={36} />
+              <img className="size-9 rounded-xl object-contain" src={floga.logo} alt={floga.company} width={36} height={36} />
               <div>
-                <p className="text-sm font-medium text-primary leading-tight">Floga</p>
-                <p className="text-[12px] text-gray-750 leading-tight">Umberto Mezzadra, CEO</p>
+                <p className="text-sm font-medium text-primary leading-tight">{floga.company}</p>
+                <p className="text-[12px] text-gray-750 leading-tight">{floga.person}, {floga.title}</p>
               </div>
             </div>
             <p className="text-[15px] leading-snug text-gray-800 mb-2.5">
-              Generated <strong className="font-medium text-secondary-blue-1">$120K+ in one&nbsp;day</strong>{" "}of pre-launch lifetime memberships via RevenueCat Web&nbsp;Billing.
+              {floga.quoteParts.before}<strong className="font-medium text-secondary-blue-1">{floga.quoteParts.bold}</strong>{floga.quoteParts.after}
             </p>
-            <a className="font-object inline-flex items-center gap-1 text-[13px] text-secondary-blue-1 hover:text-secondary-blue-2 font-medium transition-colors" href="https://www.revenuecat.com/customers/floga" target="_blank" rel="noopener noreferrer">
+            <a className="font-object inline-flex items-center gap-1 text-[13px] text-secondary-blue-1 hover:text-secondary-blue-2 font-medium transition-colors" href={floga.link} target="_blank" rel="noopener noreferrer">
               Read Case Study
               <svg className="w-1.5! shrink-0" viewBox="0 0 7 9" xmlns="http://www.w3.org/2000/svg"><path clipRule="evenodd" d="m0 9.002 6.998-3.844V3.844L0 0v1.711l5.08 2.79L0 7.291z" fill="currentColor" fillRule="evenodd" /></svg>
             </a>

@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
+import { navItems, navDirectLinks, navAuth } from "@/data/navigation";
 
 export function Navbar() {
   const [bgWhite, setBgWhite] = useState(false);
@@ -53,8 +55,7 @@ export function Navbar() {
 
         <nav className="-ml-2 max-xl:hidden">
           <ul className="flex items-center">
-            {["Features", "Solutions", "Developers", "Resources", "Integrations"].map(
-              (item) => (
+            {navItems.map((item) => (
                 <li key={item} className="group relative">
                   <button
                     className="inline-flex items-center gap-x-1.25 rounded px-3.5 font-object text-sm text-primary transition-colors duration-300 hover:text-secondary-red after:mt-1.25 after:size-0 after:origin-[center_20%] after:border-4 after:border-transparent after:border-t-current after:transition-transform after:duration-300"
@@ -65,42 +66,29 @@ export function Navbar() {
                 </li>
               )
             )}
-            <li className="group relative">
-              <a
-                className="font-object inline-flex items-center gap-x-1 rounded transition-colors duration-300 text-primary hover:text-secondary-red text-sm px-3.5"
-                href="https://www.revenuecat.com/blog"
-              >
-                Blog
-              </a>
-            </li>
-            <li className="group relative">
-              <a
-                className="font-object inline-flex items-center gap-x-1 rounded transition-colors duration-300 text-primary hover:text-secondary-red text-sm px-3.5"
-                href="https://www.revenuecat.com/pricing"
-              >
-                Pricing
-              </a>
-            </li>
+            {navDirectLinks.map((link) => (
+              <li key={link.label} className="group relative">
+                <a
+                  className="font-object inline-flex items-center gap-x-1 rounded transition-colors duration-300 text-primary hover:text-secondary-red text-sm px-3.5"
+                  href={link.href}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
 
         <div className="flex items-center gap-8 max-xl:hidden">
           <a
             className="font-object inline-flex items-center gap-x-1 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 text-sm font-medium tracking-dense"
-            href="https://app.revenuecat.com/login"
+            href={navAuth.login.href}
             rel="noopener noreferrer"
             target="_blank"
           >
-            Log In
+            {navAuth.login.label}
           </a>
-          <a
-            className="transition-colors duration-300 whitespace-nowrap font-object font-medium relative inline-flex w-fit items-center justify-center gap-1 bg-secondary-blue-1 hover:bg-secondary-blue-2 text-white h-[2.625rem] rounded-full text-sm px-7 tracking-dense"
-            href="https://app.revenuecat.com/signup"
-          >
-            <span className="relative z-10 inline-flex whitespace-nowrap items-center justify-center gap-1 w-full">
-              Sign Up
-            </span>
-          </a>
+          <Button href={navAuth.signup.href} size="nav">{navAuth.signup.label}</Button>
         </div>
 
         {/* Mobile hamburger */}
@@ -122,7 +110,7 @@ export function Navbar() {
       >
         <nav className={`container pb-6 pt-2 border-t border-border-light ${bgWhite ? "bg-white" : "bg-gray-50"}`}>
           <ul className="flex flex-col gap-1 mb-6">
-            {["Features", "Solutions", "Developers", "Resources", "Integrations", "Blog", "Pricing"].map((item) => (
+            {[...navItems, ...navDirectLinks.map((l) => l.label)].map((item) => (
               <li key={item}>
                 <a
                   className="font-object block rounded-lg px-3 py-2.5 text-sm text-primary transition-colors hover:bg-gray-50"
@@ -136,18 +124,13 @@ export function Navbar() {
           <div className="flex flex-col gap-3 px-3">
             <a
               className="font-object text-center text-sm font-medium text-secondary-blue-1 hover:text-secondary-blue-2 transition-colors py-2.5"
-              href="https://app.revenuecat.com/login"
+              href={navAuth.login.href}
               rel="noopener noreferrer"
               target="_blank"
             >
-              Log In
+              {navAuth.login.label}
             </a>
-            <a
-              className="transition-colors duration-300 whitespace-nowrap font-object font-medium relative inline-flex w-full items-center justify-center gap-1 bg-secondary-blue-1 hover:bg-secondary-blue-2 text-white h-[2.625rem] rounded-full text-sm px-7 tracking-dense"
-              href="https://app.revenuecat.com/signup"
-            >
-              Sign Up
-            </a>
+            <Button href={navAuth.signup.href} size="nav" className="w-full">{navAuth.signup.label}</Button>
           </div>
         </nav>
       </div>

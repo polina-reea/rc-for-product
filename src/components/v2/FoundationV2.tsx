@@ -1,4 +1,8 @@
-import { ArrowIcon } from "../ArrowIcon";
+import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
+import { foundationIntegrations } from "@/data/integrations";
+
+const mobileRow1 = foundationIntegrations.slice(0, 3);
+const mobileRow2 = foundationIntegrations.slice(3);
 
 export function FoundationV2() {
   return (
@@ -16,39 +20,20 @@ export function FoundationV2() {
 
         {/* Integration logos — two rows on mobile, bottom row wider */}
         <div className="flex flex-wrap items-center justify-center gap-8 max-md:hidden mb-12">
-          {[
-            { name: "Amplitude", logo: "/integrations/Amplitude.svg" },
-            { name: "Mixpanel", logo: "/integrations/Mixpanel.svg" },
-            { name: "Segment", logo: "/integrations/Segment.svg" },
-            { name: "Braze", logo: "/integrations/Braze.svg" },
-            { name: "AppsFlyer", logo: "/integrations/AppsFlyer.svg" },
-            { name: "Adjust", logo: "/integrations/Adjust.svg" },
-            { name: "Slack", logo: "/integrations/Slack.svg" },
-            { name: "Stripe", logo: "/integrations/Stripe.svg" },
-          ].map((i) => (
+          {foundationIntegrations.map((i) => (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img key={i.name} className="h-10 w-10 object-contain" src={i.logo} alt={i.name} height={40} width={40} />
           ))}
         </div>
         <div className="hidden max-md:flex flex-col items-center gap-5 mb-12">
           <div className="flex items-center justify-center gap-6">
-            {[
-              { name: "Amplitude", logo: "/integrations/Amplitude.svg" },
-              { name: "Mixpanel", logo: "/integrations/Mixpanel.svg" },
-              { name: "Segment", logo: "/integrations/Segment.svg" },
-            ].map((i) => (
+            {mobileRow1.map((i) => (
               /* eslint-disable-next-line @next/next/no-img-element */
               <img key={i.name} className="h-8 w-8 object-contain" src={i.logo} alt={i.name} height={32} width={32} />
             ))}
           </div>
           <div className="flex items-center justify-center gap-6">
-            {[
-              { name: "Braze", logo: "/integrations/Braze.svg" },
-              { name: "AppsFlyer", logo: "/integrations/AppsFlyer.svg" },
-              { name: "Adjust", logo: "/integrations/Adjust.svg" },
-              { name: "Slack", logo: "/integrations/Slack.svg" },
-              { name: "Stripe", logo: "/integrations/Stripe.svg" },
-            ].map((i) => (
+            {mobileRow2.map((i) => (
               /* eslint-disable-next-line @next/next/no-img-element */
               <img key={i.name} className="h-8 w-8 object-contain" src={i.logo} alt={i.name} height={32} width={32} />
             ))}
@@ -57,12 +42,8 @@ export function FoundationV2() {
 
         {/* Links row */}
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-          <a className="font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium text-sm" href="https://www.revenuecat.com/docs/getting-started/installation" target="_blank" rel="noopener noreferrer">
-            View SDKs <ArrowIcon />
-          </a>
-          <a className="font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium text-sm" href="https://www.revenuecat.com/integrations/" target="_blank" rel="noopener noreferrer">
-            View All Integrations <ArrowIcon />
-          </a>
+          <LinkWithArrow href="https://www.revenuecat.com/docs/getting-started/installation">View SDKs</LinkWithArrow>
+          <LinkWithArrow href="https://www.revenuecat.com/integrations/">View All Integrations</LinkWithArrow>
         </div>
       </div>
     </section>

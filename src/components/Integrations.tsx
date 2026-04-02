@@ -1,15 +1,5 @@
-import { ArrowIcon } from "./ArrowIcon";
-
-const integrations = [
-  { name: "Amplitude", logo: "/integrations/Amplitude.svg", href: "https://www.revenuecat.com/integrations/amplitude/" },
-  { name: "Mixpanel", logo: "/integrations/Mixpanel.svg", href: "https://www.revenuecat.com/integrations/mixpanel/" },
-  { name: "Braze", logo: "/integrations/Braze.svg", href: "https://www.revenuecat.com/integrations/braze/" },
-  { name: "Adjust", logo: "/integrations/Adjust.svg", href: "https://www.revenuecat.com/integrations/adjust/" },
-  { name: "AppsFlyer", logo: "/integrations/AppsFlyer.svg", href: "https://www.revenuecat.com/integrations/appsflyer/" },
-  { name: "Segment", logo: "/integrations/Segment.svg", href: "https://www.revenuecat.com/integrations/segment/" },
-  { name: "Stripe", logo: "https://revenuecat.wpenginepowered.com/wp-content/uploads/2022/01/stripe.svg", href: "https://www.revenuecat.com/integrations/stripe/" },
-  { name: "Slack", logo: "/integrations/Slack.svg", href: "https://www.revenuecat.com/integrations/slack/" },
-];
+import { LinkWithArrow } from "@/components/ui/LinkWithArrow";
+import { integrations } from "@/data/integrations";
 
 export function Integrations() {
   return (
@@ -50,14 +40,7 @@ export function Integrations() {
         </ul>
 
         <div className="text-center">
-          <a
-            className="font-object inline-flex items-center gap-2 rounded transition-colors duration-300 text-secondary-blue-1 hover:text-secondary-blue-2 font-medium text-sm"
-            href="https://www.revenuecat.com/integrations/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View All Integrations <ArrowIcon />
-          </a>
+          <LinkWithArrow href="https://www.revenuecat.com/integrations/">View All Integrations</LinkWithArrow>
         </div>
       </div>
     </section>
