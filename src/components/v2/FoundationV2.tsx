@@ -14,7 +14,7 @@ export function FoundationV2() {
             Everything else?<br /><span className="v2-gradient-text">Already handled</span>
           </h2>
           <p className="text-xl leading-snug font-light text-gray-800 max-w-2xl mx-auto text-pretty max-md:text-base">
-            Cross-platform SDKs, server-side receipt validation, and real-time entitlements. Your eng team drops it in once, you ship product from&nbsp;there.
+            Cross-platform SDKs, server-side receipt validation, and real-time entitlements. Your engineering team drops it in once, you ship product from&nbsp;there.
           </p>
         </div>
 
