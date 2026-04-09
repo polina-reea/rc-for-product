@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     canonical: "https://www.revenuecat.com/for-product/",
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
 };
